@@ -11,8 +11,8 @@ LinkedIn [Junghyeon Ahn](www.linkedin.com/in/junghyeon-ahn/), Email: ro033026@gm
 
 ## Table of Contents
 - [Projects](#projects)
-  - [Project 1: EDA](##project-1-EDA)
-  - [Project 2: KPI](#project-2-KPI)
+  - [Project 1: Cleaning the data](#project-1-cleaning-the-data)
+  - [Project 2: KPI](#project-2:-KPI)
   - [Project 3.1: Aggregation-by-ages](#project-3-Aggregation-by-ages)
   - [Project 3.2: Campaign ROMI Analysis with SQL](#project-4-Purcase-pattern-between-subscriped-users-and-non-subscriped-users)
   - [Project 4: Metrics Calculation and UTM Campaign Tracking with SQL](#project-4-metrics-calculation-and-utm-campaign-tracking-with-sql)
@@ -24,18 +24,28 @@ LinkedIn [Junghyeon Ahn](www.linkedin.com/in/junghyeon-ahn/), Email: ro033026@gm
 - [Contact](#contact)
 
 
-## projects 
+# Projects:
+## Project 1: Cleaning the data
+
+[View SQL query](https://github.com/AndreasHutmann/SQL-Project-/blob/main/SQL-script%20-%201.%20Data%20cleaning)
+
+Preview the data
+<img width="1470" alt="Preview the data" src="https://github.com/user-attachments/assets/7cece1f1-1a85-4265-ac24-dffaad25dfbc">
+Null Value check
+<img width="1470" alt="Null Value check" src="https://github.com/user-attachments/assets/4551dfd2-f5b9-41b2-91e9-1482a273f73d">
+Duplicate row check
+<img width="1470" alt="Duplicate row check" src="https://github.com/user-attachments/assets/c20d3eb6-a352-4243-a8ff-402db913a6c7">
+Numeric range & outlier scan
+<img width="1470" alt="Numeric range & outlier scan" src="https://github.com/user-attachments/assets/cbfb78e1-cab2-4082-a532-4e67f0093b73">
+Categorical value sanity checks
+<img width="1470" alt="Categorical value sanity checks" src="https://github.com/user-attachments/assets/6e23cd3c-4e46-4e8f-9cde-2bb45a99a284">
+Business logic validation
+<img width="1470" alt="Business logic validation" src="https://github.com/user-attachments/assets/1a91706e-c2cc-47f9-9098-88cad42523bd">
 
 
-## project-1-EDA 
+## Project 2: KPI
 
-[View SQL query](https://github.com/shvetsihorr/SQL-Projects/blob/ec56831b78293c482737756f23f2970a6c12dd86/SQL%20script%20Daily%20Campaign%20Performance%20Metrics.sql)
-
-<img width="1470" alt="Daily Campaign Performance Metrics" src="https://github.com/user-attachments/assets/69cc8c9a-b5b7-4360-9c14-65eb4c7ea2df">
-
-## project-2-KPI
-
-## project-3-Aggregation-by-ages
+## Project 3: Aggregation by ages
 
 ## project-4-Purcase-pattern-between-subscriped-users-and-non-subscriped-users
 

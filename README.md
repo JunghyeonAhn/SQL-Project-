@@ -2,7 +2,7 @@
 Welcome to my portfolio, where I showcase my expertise in SQL and Google BigQuery through various product/eCommerce and marketing analytics projects. These projects demonstrate my ability to analyze and optimize ad performance, track eCommerce funnel progression, and generate actionable insights from large datasets. From calculating campaign metrics to exploring conversion rates and user engagement, my work reflects a deep understanding of both marketing and product analytics.
 
 Feel free to connect with me via: 
-LinkedIn [Junghyeon Ahn](www.linkedin.com/in/junghyeon-ahn/), Email: ro033026@gmail.com
+LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro033026@gmail.com
 
 
 ## Tools Used:

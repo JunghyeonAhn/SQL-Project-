@@ -1,0 +1,55 @@
+/* Title:  2. Key Business KPIs
+   Description: This query shows core business KPIs form the shopping trends datasets.               
+
+    [Step]
+    1. Customer & Revenue KPIs
+    2. Purchase Behavior KPIs 
+    3. Total Revenue and Ratio by Category
+    4. Revenue ratio by Subscriptions
+*/
+
+-- 1. Customer & Revenue KPIs
+select 
+	COUNT(stu."Customer ID") as oder_cnt,
+	ROUND(AVG(stu."Purchase Amount (USD)"),1) as AOV,
+	ROUND(SUM(stu."Purchase Amount (USD)"),3) as total_revenue,
+	ROUND(AVG(stu."Review Rating"),1) as avg_review,
+	SUM(stu."Purchase Amount (USD)") / COUNT(DISTINCT "Customer ID") as ARPU,
+	1.0* COUNT(case when stu."Subscription Status" = 'Yes' then stu."Customer ID"  end) / COUNT(distinct "Customer ID") as Ratio_subscriped_user
+from shopping_trends_updated stu;
+
+-- 2. Purchase Behavior KPIs
+select 
+	MAX(stu."Previous Purchases"),
+	MIN(stu."Previous Purchases")
+from shopping_trends_updated stu;
+
+select 
+	round(1.0*COUNT(distinct case when "Previous Purchases" = 1 THEN stu."Customer ID" END) / count(distinct stu."Customer ID"),5) as ratio_1_Purchase, 
+	round(1.0*COUNT(distinct case when "Previous Purchases" Between 2 and 24 THEN stu."Customer ID" END) / count(distinct stu."Customer ID"),5) as ratio_less_25_Purchase,
+	round(1.0*COUNT(distinct case when "Previous Purchases" >= 25 THEN stu."Customer ID" END) / count(distinct stu."Customer ID"),5) as ratio_over_25_Purchase
+from shopping_trends_updated stu;
+
+-- 3. Total Revenue and Ratio by Category
+select 
+	stu.Category,
+	sum(stu."Purchase Amount (USD)") as revenue
+from shopping_trends_updated stu 
+group by stu.Category
+order by revenue desc;
+
+select	
+	stu.Category,
+	round(1.0*sum("Purchase Amount (USD)") / sum(sum("Purchase Amount (USD)")) over(),2) as revenue_ratio
+from shopping_trends_updated stu
+group by stu.Category
+order by revenue_ratio desc;
+
+
+-- 4. Revenue ratio by Subscription
+select round(1.0* sum(case when stu."Subscription Status" = 'Yes' then "Purchase Amount (USD)" else 0 end) 
+/ sum("Purchase Amount (USD)"),2) as subscriped_user_revenue_ratio,
+round(1.0* sum(case when stu."Subscription Status" = 'No' then "Purchase Amount (USD)" else 0 end) 
+/ sum("Purchase Amount (USD)"),2) as Non_subscriped_user_revenue_ratio
+from shopping_trends_updated stu;
+

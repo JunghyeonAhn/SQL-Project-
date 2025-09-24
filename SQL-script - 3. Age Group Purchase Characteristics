@@ -1,0 +1,161 @@
+/* Title:  3. Age Group Purchase Characteristics
+   Description : This query analyzes orders, revenue, product preferences, payment methods, and customer satisfaction across six age groups. 
+                  Through this analysis, we can identify detailed purchase patterns by age, which provides a foundation for developing effective marketing strategies.
+
+    [Index]
+    1. Orders and Revenue by Age Group
+    2. Category Preference by Age Group
+    3. Payment Method Analysis by Age Group
+    4. Price Sensitivity by Age Group
+    5. Customer Satisfaction and AOV by Age Group
+    6. ARPU by Age Group            
+*/
+
+-- Category preference by age group (order count)
+select 
+	CASE
+		WHEN age Between 18 and 25 THEN '18-25'
+		WHEN age Between 26 and 35 THEN '26-35'
+		WHEN age Between 36 and 45 THEN '36-45'
+		WHEN age Between 46 and 55 THEN '45-55'
+		WHEN age Between 56 and 65 THEN '56-65'
+		WHEN age Between 66 and 70 THEN '66-70'
+		ELSE 'Other'
+	End as age_group,
+	Category,
+	COUNT(*) as total_order_cnt
+from shopping_trends_updated stu 
+Group by age_group, category
+order by age_group, total_order_cnt desc;
+
+
+-- Category revenue by age group
+select 
+	CASE
+		WHEN age Between 18 and 25 THEN '18-25'
+		WHEN age Between 26 and 35 THEN '26-35'
+		WHEN age Between 36 and 45 THEN '36-45'
+		WHEN age Between 46 and 55 THEN '45-55'
+		WHEN age Between 56 and 65 THEN '56-65'
+		WHEN age Between 66 and 70 THEN '66-70'
+		ELSE 'Other'
+	End as age_group,
+	Category,
+	sum(stu."Purchase Amount (USD)") as total_revenue_by_age
+from shopping_trends_updated stu 
+Group by age_group, category
+order by age_group, total_revenue_by_age desc;
+
+
+-- Orders, revenue, and AOV by age group (with % contribution)
+WITH by_age AS (
+  SELECT
+    CASE
+      WHEN age BETWEEN 18 AND 25 THEN '18-25'
+      WHEN age BETWEEN 26 AND 35 THEN '26-35'
+      WHEN age BETWEEN 36 AND 45 THEN '36-45'
+      WHEN age BETWEEN 46 AND 55 THEN '46-55'
+      WHEN age BETWEEN 56 AND 65 THEN '56-65'
+      WHEN age BETWEEN 66 AND 70 THEN '66-70'
+      ELSE 'Other'
+    END AS age_group,
+    COUNT(*) AS orders,
+    SUM("Purchase Amount (USD)") AS revenue
+  FROM shopping_trends_updated stu 
+  GROUP BY age_group
+)
+SELECT
+  age_group,
+  orders,
+  revenue,
+  ROUND(100.0 * orders / SUM(orders)  OVER (), 2) AS order_pct,
+  ROUND(100.0 * revenue / SUM(revenue) OVER (), 2) AS revenue_pct,
+  ROUND( (100.0 * revenue / SUM(revenue) OVER ())
+       - (100.0 * orders / SUM(orders)  OVER ()), 2) AS pct_gap, 
+  ROUND(revenue * 1.0 / orders, 2) AS AOV
+FROM by_age
+ORDER BY age_group, pct_gap DESC;
+
+-- Price sensitivity by age group (discount / promo usage)
+SELECT
+   CASE 
+      WHEN age BETWEEN 18 AND 25 THEN '18-25'
+      WHEN age BETWEEN 26 AND 35 THEN '26-35'
+      WHEN age BETWEEN 36 AND 45 THEN '36-45'
+      WHEN age BETWEEN 46 AND 55 THEN '46-55'
+      WHEN age BETWEEN 56 AND 65 THEN '56-65'
+      WHEN age BETWEEN 66 AND 70 THEN '66-70'
+      ELSE 'Other'
+    END AS age_group,
+    ROUND(100*AVG(CASE WHEN stu."Discount Applied" = 'Yes' THEN 1 ELSE 0 END),1) AS discount,
+    ROUND(100*AVG(CASE WHEN stu."Promo Code Used" = 'Yes' THEN 1 ELSE 0 END),1) AS promo
+from shopping_trends_updated stu 
+GROUP BY age_group;
+
+
+-- Customer satisfaction, revenue, and AOV by age group
+SELECT
+   CASE 
+      WHEN age BETWEEN 18 AND 25 THEN '18-25'
+      WHEN age BETWEEN 26 AND 35 THEN '26-35'
+      WHEN age BETWEEN 36 AND 45 THEN '36-45'
+      WHEN age BETWEEN 46 AND 55 THEN '46-55'
+      WHEN age BETWEEN 56 AND 65 THEN '56-65'
+      WHEN age BETWEEN 66 AND 70 THEN '66-70'
+      ELSE 'Other'
+    END AS age_group,
+    ROUND(10*AVG(stu."Review Rating"),1) AS AVG_Review,
+    SUM(stu."Purchase Amount (USD)") / COUNT(stu."Customer ID" ) AS AOV,
+    SUM(stu."Purchase Amount (USD)") AS total_revenue
+from shopping_trends_updated stu 
+GROUP BY age_group
+ORDER BY age_group;
+
+
+-- Payment method by age group (order count, revenue, AOV)
+SELECT
+   CASE 
+      WHEN age BETWEEN 18 AND 25 THEN '18-25'
+      WHEN age BETWEEN 26 AND 35 THEN '26-35'
+      WHEN age BETWEEN 36 AND 45 THEN '36-45'
+      WHEN age BETWEEN 46 AND 55 THEN '46-55'
+      WHEN age BETWEEN 56 AND 65 THEN '56-65'
+      WHEN age BETWEEN 66 AND 70 THEN '66-70'
+      ELSE 'Other'
+    END AS age_group,
+    stu."Payment Method",
+    COUNT(stu."Payment Method") AS paymethod_cnt,
+    SUM(stu."Purchase Amount (USD)") / COUNT(stu."Customer ID" ) AS AOV,
+    SUM(stu."Purchase Amount (USD)") AS total_revenue
+from shopping_trends_updated stu 
+GROUP BY age_group
+ORDER BY age_group;
+
+
+-- ARPU by age group
+WITH age_by AS ( 
+SELECT
+   CASE 
+      WHEN age BETWEEN 18 AND 25 THEN '18-25'
+      WHEN age BETWEEN 26 AND 35 THEN '26-35'
+      WHEN age BETWEEN 36 AND 45 THEN '36-45'
+      WHEN age BETWEEN 46 AND 55 THEN '46-55'
+      WHEN age BETWEEN 56 AND 65 THEN '56-65'
+      WHEN age BETWEEN 66 AND 70 THEN '66-70'
+      ELSE 'Other'
+    END AS age_group,
+    stu."Customer ID",
+    SUM(stu."Purchase Amount (USD)") as customer_revenue 
+from shopping_trends_updated stu 
+GROUP BY age_group
+), 
+agg AS  (
+	SELECT
+		age_group,
+		ROUND(1.0*SUM(customer_revenue) / COUNT(DISTINCT "Customer ID"),1) AS ARPU
+	FROM age_by
+	GROUP BY age_group
+)
+SELECT *
+FROM agg
+ORDER BY ARPU DESC;

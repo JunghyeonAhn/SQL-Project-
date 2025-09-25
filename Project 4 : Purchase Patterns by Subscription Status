@@ -1,0 +1,269 @@
+/* Title:  1. Purchase Patterns by Subscription Status
+   Description : 
+   This query analyzes customer purchase behavior by subscription status 
+ (Subscribed vs Non-Subscribed). It provides key metrics such as orders, AOV, 
+ revenue contribution, gender mix, product category distribution, satisfaction, 
+ and promotion sensitivity. 
+
+  The purpose is to identify how subscription membership impacts customer 
+ behavior and value. These insights can guide marketing and retention strategies, 
+ such as targeting high-value subscribers, designing personalized promotions, 
+ or improving engagement among non-subscribed users.
+
+    [Index]
+    1. KPI by Subscription (Orders, AOV, Revenue)
+    2. Share of Subscribed vs Non-Subscribed Users
+    3. Gender Mix Within Each Status
+    4. Category & Item Distribution (Counts, % within Status, AOV)
+      4.1 Category-level comparison: Orders, share of orders within each status, AOV
+      4.2 Item-level comparison: Orders, share of orders within each status, AOV
+    5. Top-3 Categories by Orders / AOV / Revenue
+      5.1 Orders
+      5.2 AOV
+      5.3 Revenue
+    6. Satisfaction by Subscription Status 
+    7. Promotion Sensitivity (+ AOV / Review)
+*/
+
+-- KPI by Subscription (Orders, AOV, Revenue)
+select
+	CASE
+		WHEN "Subscription Status" like 'Yes' THEN 'Subscribed' ELSE 'non_Subscribed' 
+	END as status,
+	COUNT(stu."Customer ID") as oder_cnt,
+	ROUND(AVG(stu."Purchase Amount (USD)"),1) as AOV,
+	ROUND(SUM(stu."Purchase Amount (USD)"),3) as total_revenue
+from shopping_trends_updated stu
+Group by status;
+
+
+-- Share of Subscribed vs Non-Subscribed Users
+select 
+	round(100*count(case when "Subscription Status" like 'Yes' then "Customer ID" end) / count(*)) as subscriped_user_percent,
+	round(100*count(case when "Subscription Status" like 'No' then "Customer ID" end) / count(*)) as unsubscriped_user__percent
+from shopping_trends_updated stu;
+
+
+-- Gender Mix Within Each Status
+with sub_cte as (
+	select 
+		case when stu."Subscription Status" = 'Yes' then 'Subscriped' else 'Non_subscriped' end as Status,
+		gender
+	from shopping_trends_updated stu 
+),
+cnt as (
+	select
+		Status,
+		gender,
+		count(*) as cnt
+	from sub_cte 
+	group by Status, gender
+)
+select
+	Status,
+	round(100*SUM(case when gender = 'Female' then cnt else 0 end) / sum(cnt),1) as Female_pct,
+	round(100*SUM(case when gender = 'Male' then cnt else 0 end) / sum(cnt),1) as Male_pct
+from cnt 
+group by Status
+order by Status desc; 
+
+
+--- Category & Item Distribution (Counts, % within Status, AOV) 
+with sub_cte as (
+	select
+		case when "Subscription Status" = 'Yes' then 'Subscriped' else 'Non_subscriped' end as status,
+		stu.Category,
+	    stu."Item Purchased" as item
+	from shopping_trends_updated stu
+), 
+Category as (
+	select
+		status,
+		Category, 
+		item,
+		count(*) as product_cnt
+	from sub_cte
+	group by status,Category,item 
+)
+select 
+	status,
+	c.Category,
+	item,
+	product_cnt
+from Category c
+order by status, Category,product_cnt desc;
+
+
+--Category-level comparison: Orders, share of orders within each status, AOV
+with sub_cte as (
+	select
+		case when "Subscription Status" = 'Yes' then 'Subscriped' else 'Non_subscriped' end as status,
+		stu.Category,
+		stu."Purchase Amount (USD)" as purchase, 
+	    stu."Item Purchased" as item
+	from shopping_trends_updated stu
+), 
+Category as (
+	select
+		status,
+		Category, 
+		item,
+		purchase,
+		count(*) as cnt
+	from sub_cte
+	group by status,Category,item,purchase
+)
+select 
+	status,
+ 	Category,
+	sum(cnt) as orders,
+	sum(purchase * cnt) / sum(cnt) as AOV_per_category, -- 가중평균 
+	round(100*sum(cnt) / sum(sum(cnt)) over(partition by status), 1) as category_ptc_by_status
+from Category
+group by status, Category
+order by status, category_ptc_by_status desc;
+
+--- Item-level comparison: Orders, share of orders within each status, AOV
+with sub_cte as (
+	select
+		case when "Subscription Status" = 'Yes' then 'Subscriped' else 'Non_subscriped' end as status,
+		stu.Category,
+		stu."Purchase Amount (USD)" as purchase, 
+	    stu."Item Purchased" as item
+	from shopping_trends_updated stu
+), 
+Category as (
+	select
+		status,
+		Category, 
+		item,
+		purchase,
+		count(*) as cnt
+	from sub_cte
+	group by status,Category,item, purchase
+)
+select 
+	status,
+	Category,
+	item,
+	sum(cnt) as orders,
+	sum(purchase * cnt) / sum(cnt) as AOV_per_category, -- 가중평균
+	round(100*sum(cnt) / sum(sum(cnt)) over(partition by status), 1) as item_ptc_by_status
+from Category
+group by status, item, Category
+order by status, item_ptc_by_status desc;
+
+
+
+--Top-3 Categories by Orders / AOV / Revenue
+--- Orders
+WITH status as (
+	select 
+		CASE
+			WHEN "Subscription Status" like 'Yes' THEN 'Subscribed' ELSE 'non_Subscribed'
+		END as status,
+		COUNT(*) AS order_cnt,
+		category
+	from shopping_trends_updated stu
+	group by status, category
+)
+select *
+FROM (
+	select
+		status,
+		category,
+		order_cnt,
+		ROW_NUMBER() OVER (PARTITION BY status ORDER BY order_cnt desc) as rn
+    from status
+) ranked
+where rn <= 3
+order by status, rn;		
+
+--- AOV
+WITH status as (
+	select 
+		CASE
+			WHEN "Subscription Status" like 'Yes' THEN 'Subscribed' ELSE 'non_Subscribed'
+		END as status,
+		ROUND(avg("Purchase Amount (USD)"),1) AS AOV,
+		category
+	from shopping_trends_updated stu
+	group by status, category
+)
+select *
+FROM (
+	select
+		status,
+		category,
+		AOV,
+		ROW_NUMBER() OVER (PARTITION BY status ORDER BY AOV desc) as rn
+    from status
+) ranked
+where rn <= 3
+order by status, rn;		
+
+--  Revenue
+WITH status as (
+	select 
+		CASE
+			WHEN "Subscription Status" like 'Yes' THEN 'Subscribed' ELSE 'non_Subscribed'
+		END as status,
+		SUM("Purchase Amount (USD)") AS Total_revenu,
+		category
+	from shopping_trends_updated stu
+	group by status, category
+)
+select *
+FROM (
+	select
+		status,
+		category,
+		Total_revenu,
+		ROW_NUMBER() OVER (PARTITION BY status ORDER BY Total_revenu desc) as rn
+    from status
+) ranked
+where rn <= 3
+order by status, rn;
+
+
+-- Satisfaction by Subscription Status
+WITH status as (
+	select 
+		CASE WHEN "Subscription Status" like 'Yes' THEN 'Subscribed' ELSE 'non_Subscribed' END as status,
+		stu."Review Rating"
+	from shopping_trends_updated stu
+)
+select 
+	status,
+	round(avg("Review Rating"),2) as avg_review 
+from status
+group by status;
+
+-- Promotion Sensitivity (+ AOV / Review)
+WITH status as (
+	select 
+		CASE WHEN "Subscription Status" like 'Yes' THEN 'Subscribed' ELSE 'non_Subscribed' END as status,
+		CASE WHEN "Promo Code Used"  like 'Yes' THEN 'promo_use' ELSE 'promo_nouse' END as promo,
+		"Review Rating" as review,
+		"Purchase Amount (USD)" as purchase
+	from shopping_trends_updated stu
+),
+cnt as (
+	select 
+		status,
+		promo,
+		count(*) as cnt,
+		ROUND(AVG(review), 1) AS avg_review,
+		ROUND(AVG(purchase), 1) AS AOV
+	from status
+	group by status, promo
+)
+select 
+	status,
+	promo,
+	cnt as promo_cnt,
+	round(100*cnt / sum(cnt) over(partition by status),1) as promo_pct_by_status,
+	avg_review,
+	AOV
+from cnt
+order by status, promo_cnt desc;

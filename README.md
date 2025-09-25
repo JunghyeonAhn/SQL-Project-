@@ -24,7 +24,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
   - [Project 1: Cleaning the data](#project-1-cleaning-the-data)
   - [Project 2: Key Business KPIs](#project-2-key-business-kpis)
   - [Project 3: Age Group Purchase Characteristics](#project-3-age-group-purchase-characteristics)
-  - [Project 3.2: Campaign ROMI Analysis with SQL](#project-4-Purcase-pattern-between-subscriped-users-and-non-subscriped-users)
+  - [Project 4: Purchase Patterns by Subscription Status](#project-4-purchase-patterns-by-subscription-status)
   - [Project 4: Metrics Calculation and UTM Campaign Tracking with SQL](#project-4-metrics-calculation-and-utm-campaign-tracking-with-sql)
   - [Project 5: Data Preparation for BI Reporting using Google BigQuery](#project-5-data-preparation-for-bi-reporting-using-google-bigquery)
   - [Project 6: Conversion Calculation by Date and Traffic Channel using Google BigQuery](#project-6-conversion-calculation-by-date-and-traffic-channel-using-google-bigquery)
@@ -130,7 +130,15 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 
 
 
-## project-4-Purcase-pattern-between-subscriped-users-and-non-subscriped-users
+## Project 4: Purchase Patterns by Subscription Status
+
+[View SQL query](https://github.com/AndreasHutmann/SQL-Project-/blob/main/Project%204%20%3A%20Purchase%20Patterns%20by%20Subscription%20Status)
+
+
+**1. KPI by Subscription (Orders, AOV, Revenue)**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/87b30d99-4965-42cb-bac9-bfd4d635fc70)
+
 
 
 

@@ -8,7 +8,7 @@ The analysis covers the entire workflow:
 - **Segmentation Analysis**: breaking down purchase behaviors by age group, product categories, payment methods, discount sensitivity, and review satisfaction.  
 - **Actionable Insights**: identifying which customer groups contribute the most revenue, which age segments are price sensitive, and where marketing strategies can be optimized.  
 
-This work demonstrates my ability to use SQL for **end-to-end eCommerce analysis**, from raw data exploration to generating insights that can inform marketing and product decisions.
+This work demonstrates my ability to use SQL for **discovering consumer purchase insights through retail data analysis**, from raw data exploration to generating insights that can inform marketing and product decisions.
 
 
 Feel free to connect with me via: 
@@ -17,6 +17,9 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 
 ## Tools Used:
 - **MySQL**: For querying and analyzing data across various projects.
+
+## Datasets:
+- **Kaggle**: [Customer Shopping Trends Dataset](https://www.kaggle.com/datasets/iamsouravbanerjee/customer-shopping-trends-dataset/discussion?sort=hotness)
 
 
 ## Table of Contents

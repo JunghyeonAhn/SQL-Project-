@@ -28,11 +28,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
   - [Project 2: Key Business KPIs](#project-2-key-business-kpis)
   - [Project 3: Age Group Purchase Characteristics](#project-3-age-group-purchase-characteristics)
   - [Project 4: Purchase Patterns by Subscription Status](#project-4-purchase-patterns-by-subscription-status)
-  - [Project 4: Metrics Calculation and UTM Campaign Tracking with SQL](#project-4-metrics-calculation-and-utm-campaign-tracking-with-sql)
-  - [Project 5: Data Preparation for BI Reporting using Google BigQuery](#project-5-data-preparation-for-bi-reporting-using-google-bigquery)
-  - [Project 6: Conversion Calculation by Date and Traffic Channel using Google BigQuery](#project-6-conversion-calculation-by-date-and-traffic-channel-using-google-bigquery)
-  - [Project 7: Comparison of Conversion Rates Between Different Landing Pages using Google BigQuery](#project-7-comparison-of-conversion-rates-between-different-landing-pages-using-google-bigquery)
-  - [Project 8: Correlation Analysis Between User Engagement and Purchases using Google BigQuery](#project-8-correlation-analysis-between-user-engagement-and-purchases-using-google-bigquery)
+  - 
 - [Skills Demonstrated](#skills-demonstrated)
 - [Contact](#contact)
 
@@ -140,7 +136,55 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 
 **1. KPI by Subscription (Orders, AOV, Revenue)**
 <br><br>
-![Preview the data](https://github.com/user-attachments/assets/87b30d99-4965-42cb-bac9-bfd4d635fc70)
+![Preview the data](https://github.com/user-attachments/assets/4b9a2654-4bbc-48c0-88e3-505bfacb41f6)
+
+**2.Subscriber Mix (Sub vs. Non-Sub, %)**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/8ac76c76-4ce2-4b4a-913f-06e99603b0ca)
+
+**3.Gender Split by Subscription Status**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/abca49fc-91bf-469a-8767-90ac7e49bda6)
+
+**4.Purchase product by Subscription Status**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/a2b2a29c-ee67-4d1f-8cfe-e2295b208dca)
+
+**5.Category Performance**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/77ad321e-e1b4-4db8-ac8e-bdf88bca22a7)
+
+**6.Category × Product Performance**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/3c768049-7d7d-43ca-891e-577404b5bbc6)
+
+**7.Top 3 Products by Orders**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/90f3e24a-08e7-47cc-9367-a0e46931d41d)
+
+**8.Top 3 Products by AOV**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/a16df1ee-ccb6-426c-a1d2-da2ee1923391)
+
+**9.Top 3 Products by Revenue**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/0982e419-2c09-42a4-b200-462aed7ef4a3)
+
+**10.Customer Satisfaction by Subscription Status**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/b7862e8a-5632-42c1-acfb-8c5f05c98029)
+
+
+**11.Price Sensitivity, Reviews, and AOV**
+<br><br>
+![Preview the data](https://github.com/user-attachments/assets/df8f8e18-9d79-483c-b525-c061ba0eb53b)
+
+
+
+
+
+
+
 
 
 

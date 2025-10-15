@@ -28,7 +28,6 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
   - [Project 2: Key Business KPIs](#project-2-key-business-kpis)
   - [Project 3: Age Group Purchase Characteristics](#project-3-age-group-purchase-characteristics)
   - [Project 4: Purchase Patterns by Subscription Status](#project-4-purchase-patterns-by-subscription-status)
-  - 
 - [Skills Demonstrated](#skills-demonstrated)
 - [Contact](#contact)
 

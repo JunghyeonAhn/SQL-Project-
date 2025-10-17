@@ -2,10 +2,10 @@
 In this project, I analyzed a shopping trends dataset using **MySQL** in the **DBeaver environment**.  
 
 The analysis covers the entire workflow:
-- **Data Cleaning**: handling missing values, checking duplicates, and validating business logic.  
-- **Key Business KPIs**: calculating order count, total revenue, AOV, ARPU, repeat purchase rates, and subscription ratios.  
-- **Segmentation Analysis**: breaking down purchase behaviors by age group, product categories, payment methods, discount sensitivity, and review satisfaction.  
-- **Actionable Insights**: identifying which customer groups contribute the most revenue, which age segments are price sensitive, and where marketing strategies can be optimized.  
+- **Data Cleaning**: handling missing values, wrong product name, and product Name standardisation and categorisation  
+- **Product-Centric Analysis**: 
+- **Time Series Analysis**:
+- **Actionable Insights**: 
 
 This work demonstrates my ability to use SQL for **discovering consumer purchase insights through retail data analysis**, from raw data exploration to generating insights that can inform marketing and product decisions.
 
@@ -22,11 +22,9 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 
 
 ## Table of Contents
-- [Projects](#projects)
-  - [Project 1: Cleaning the data](#project-1-cleaning-the-data)
-  - [Project 2: Key Business KPIs](#project-2-key-business-kpis)
-  - [Project 3: Age Group Purchase Characteristics](#project-3-age-group-purchase-characteristics)
-  - [Project 4: Purchase Patterns by Subscription Status](#project-4-purchase-patterns-by-subscription-status)
+- [Project 1: Cleaning the data](#project-1-cleaning-the-data)
+- [Project 2: Product-Centric Analysis](#project-2-product-centric-analysis)
+- [Project 3: Time Series Analysis](#project-3-time-series-analysis)
 
 # Projects:
 ## Project 1: Cleaning the data
@@ -81,18 +79,16 @@ Furthermore, some negative transactions contain empty strings in the 'Descriptio
 <br><br>
 
 
-## Project 2: Key Business KPIs
+## Project 2: Product-Centric Analysis
 
 [View SQL query](-)
 
-
-**1. Customer & Revenue KPIs** 
 <br><br>
 ![Preview the data](-)
 
 
 
-## Project 3: 
+## Project 3: Time Series Analysis
 
 [View SQL query](-)
 
@@ -105,16 +101,6 @@ Furthermore, some negative transactions contain empty strings in the 'Descriptio
 
 
 
-
-
-## Project 4: 
-
-[View SQL query](-)
-
-
-**1. KPI by Subscription (Orders, AOV, Revenue)**
-<br><br>
-![Preview the data](https://github.com/user-attachments/assets/4b9a2654-4bbc-48c0-88e3-505bfacb41f6)
 
 
 

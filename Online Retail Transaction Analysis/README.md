@@ -31,7 +31,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 # Projects:
 ## Project 1: Cleaning the data
 
-[View SQL query](-)
+[View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%201.%20Data%20cleaning%20%26%20EDA)
 
 **1. Preview the data**
 <br><br>

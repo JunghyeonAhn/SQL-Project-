@@ -1,0 +1,127 @@
+/* Title:  1. Data cleaning 
+   Description : 
+
+    [Cleaning Step]
+    1. Preview the data 
+    2. Outlier check in number
+    3. Outlier empty cell check + null check 
+    4. Outlier in date
+    5. Cleaning product name
+    5. Cleaning product name
+        
+*/
+
+-- View all data
+SELECT COUNT(*)
+FROM "data" 
+
+--1. Outlier check -NULL = 0 
+SELECT *
+FROM "data"
+WHERE
+ UnitPrice IS NULL OR
+ StockCode IS NULL OR
+ InvoiceDate  IS NULL OR
+ InvoiceNo IS NULL OR
+ Description IS NULL OR
+ Quantity IS NULL OR
+ CustomerID IS NULL OR
+ Country IS NULL 
+
+
+--2 Outlier check in number
+SELECT 
+	MIN(UnitPrice) AS min_price,
+	Median(UnitPrice) AS median_price,
+	MAX(UnitPrice) AS max_price,
+	MIN(Quantity) AS min_Quantity,
+	Median(Quantity) AS median_Quantity,
+	MAX(Quantity) AS max_Quantity
+FROM "data"
+
+---2.1 Outlier check in number(minus)
+SELECT *
+FROM "data"
+WHERE UnitPrice LIKE '%-%' OR Quantity LIKE '%-%' 
+
+--3.Outlier empty cell check 
+SELECT *
+FROM "data"
+WHERE
+ Description like '' OR 
+ UnitPrice like '' OR 
+ StockCode like '' OR
+ InvoiceDate  like '' OR
+ InvoiceNo like '' OR
+ Quantity like '' OR
+ CustomerID like '' OR
+ Country like '' 
+
+---3.1 checking empty cells count 
+SELECT 
+	SUM(
+		CASE 
+			WHEN Description ='' OR UnitPrice ='' OR Country='' OR Country ='' OR 
+				 InvoiceDate ='' OR InvoiceNo ='' OR Quantity='' OR StockCode ='' OR
+				 CustomerID =''
+				 THEN 1 
+				 ELSE 0
+		END
+    ) AS total_empty_rows_cnt,
+    SUM( 
+    	CASE
+    		WHEN InvoiceNo ='' THEN 1 ELSE 0 
+    	END
+     ) AS invoice_empty_cnt,
+    SUM( 
+    	CASE 
+    		WHEN  CustomerID ='' THEN 1 ELSE 0 
+    	END
+     ) AS customerid_empty_cnt,
+    SUM( 
+    	CASE 
+    		WHEN  Description ='' THEN 1 ELSE 0 
+    	END
+     ) AS Description_empty_cnt,
+    SUM( 
+    	CASE 
+    		WHEN  Quantity ='' THEN 1 ELSE 0 
+    	END
+     ) AS Quantity_empty_cnt,
+    SUM( 
+    	CASE 
+    		WHEN  UnitPrice ='' THEN 1 ELSE 0 
+    	END
+     ) AS UnitPrice_empty_cnt,
+    SUM( 
+    	CASE 
+    		WHEN  Country ='' THEN 1 ELSE 0 
+    	END
+     ) AS Country_empty_cnt,
+    SUM( 
+    	CASE 
+    		WHEN  InvoiceDate ='' THEN 1 ELSE 0 
+    	END
+     ) AS  InvoiceDate_empty_cnt
+FROM "data";
+
+--4.Outlier in date
+SELECT 
+	MAX(InvoiceDate),
+	MEDIAN(InvoiceDate),
+	MIN(InvoiceDate)
+FROM "data" 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

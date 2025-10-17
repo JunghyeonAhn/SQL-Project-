@@ -93,9 +93,7 @@ Furthermore, some negative transactions contain empty strings in the 'Descriptio
 [View SQL query](-)
 
 
-**1. Orders and Revenue by Age Group**
-<br><br>
-![Preview the data](https://github.com/user-attachments/assets/87b30d99-4965-42cb-bac9-bfd4d635fc70)
+
 
 
 

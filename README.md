@@ -20,7 +20,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 - **MySQL**: For querying and analyzing data across various projects.
 
 ## Table of Contents
-- Project 1 : [Shopping trend analysis](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Shopping%20trend%20analysis/README.md)
+- Project 1 : [Shopping Trend Analysis](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Shopping%20trend%20analysis/README.md)
 
 
 

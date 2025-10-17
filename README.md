@@ -1,12 +1,12 @@
 # 🔥SQL-Project
 Welcome to my SQL portfolio.  
 
-In this project, I analyzed a shopping trends dataset using **MySQL** in the **DBeaver environment**.  
+In this project, I performed a comprehensive analysis of an anonymized retail transaction dataset using MySQL in the DBeaver environment. The analysis follows a rigorous data science workflow, transforming raw transactional data into actionable business intelligence.
 
 The analysis covers the entire workflow:
-- **Data Cleaning**: 
-- **Key Business KPIs**:
-- **Segmentation Analysis**: 
+- **Data Cleaning**: operational noise, negative transactions, missing values (NULLs and empty strings)
+- **Key Business KPIs**: Total Revenue, AOV, ARPU, Orders
+- **Data Analysis**: Segmentation Analysis(age, subscription), Product-Centric Analysis, Time Series Analysis
 - **Actionable Insights**:  
 
 This work demonstrates my ability to use SQL for **discovering consumer purchase insights through retail data analysis**, from raw data exploration to generating insights that can inform marketing and product decisions.
@@ -17,7 +17,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 
 
 ## Tools Used:
-- **MySQL**: For querying and analyzing data across various projects.
+- **Tools Used**: MySQL, DBeaver
 
 ## Table of Contents
 - Project 1 : [Shopping Trend Analysis](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Shopping%20trend%20analysis/README.md)

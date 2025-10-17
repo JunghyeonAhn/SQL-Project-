@@ -37,6 +37,20 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 <br><br>
 <img width="1470" alt="Preview the data" src="https://github.com/user-attachments/assets/7cece1f1-1a85-4265-ac24-dffaad25dfbc">
 
+**2. .Numeric Outlier Value**
+<br><br>
+
+**3. Missing Values(NULL & Empty Strings)**
+<br><br>
+
+**3. Date/Time Range and Format Validation**
+<br><br>
+
+**4. Product Description Noise Filtration**
+<br><br>
+
+**5. Product Name Standardization and Categorization**
+<br><br>
 
 
 ## Project 2: Key Business KPIs

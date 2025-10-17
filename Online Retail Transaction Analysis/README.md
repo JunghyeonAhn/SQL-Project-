@@ -43,13 +43,13 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 **3. Missing Values(NULL & Empty Strings)**
 <br><br>
 
-**3. Date/Time Range and Format Validation**
+**4. Date/Time Range and Format Validation**
 <br><br>
 
-**4. Product Description Noise Filtration**
+**5. Product Description Noise Filtration**
 <br><br>
 
-**5. Product Name Standardization and Categorization**
+**6. Product Name Standardization and Categorization**
 <br><br>
 
 

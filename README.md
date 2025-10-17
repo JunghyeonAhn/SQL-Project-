@@ -1,5 +1,4 @@
-# SQL-Project
-Welcome to my SQL portfolio.  
+# 🛍️Shopping trend analysis
 In this project, I analyzed a shopping trends dataset using **MySQL** in the **DBeaver environment**.  
 
 The analysis covers the entire workflow:

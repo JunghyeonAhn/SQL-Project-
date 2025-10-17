@@ -1,5 +1,4 @@
-# SQL-Project
-Welcome to my SQL portfolio.  
+# 🛍️Shopping Trend Analysis
 In this project, I analyzed a shopping trends dataset using **MySQL** in the **DBeaver environment**.  
 
 The analysis covers the entire workflow:
@@ -28,9 +27,6 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
   - [Project 2: Key Business KPIs](#project-2-key-business-kpis)
   - [Project 3: Age Group Purchase Characteristics](#project-3-age-group-purchase-characteristics)
   - [Project 4: Purchase Patterns by Subscription Status](#project-4-purchase-patterns-by-subscription-status)
-- [Skills Demonstrated](#skills-demonstrated)
-- [Contact](#contact)
-
 
 # Projects:
 ## Project 1: Cleaning the data
@@ -177,7 +173,6 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 **11.Price Sensitivity, Reviews, and AOV**
 <br><br>
 ![Preview the data](https://github.com/user-attachments/assets/df8f8e18-9d79-483c-b525-c061ba0eb53b)
-
 
 
 

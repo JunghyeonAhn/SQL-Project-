@@ -33,21 +33,24 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 
 [View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%201.%20Data%20cleaning%20%26%20EDA)
 
-**1. Preview the data**<br>
+### 1. Preview the data
 Before cleaning the data, check the row count.<br>
 <img width="182" height="143" alt="image" src="https://github.com/user-attachments/assets/5ed6baa9-2020-4bca-a5cb-fb085be171c4" />
 
 
-**2.Numeric Outlier Value**
-<br><br>
+### 2.Numeric Outlier Value
+Firstly, I examine the distribution of Price and Quantity using the Min, Median, and Max values. The results indicate significant negative outliers in both the Price and Quantity columns.<br><br>
 <img width="532" height="223" alt="image" src="https://github.com/user-attachments/assets/1e831a99-51cd-4e5b-a44b-2c0f06086470" />
-
-<br>
+<br><br>
+The table contains 10,626 negative transactions, which accounts for 1.96% of the total dataset. <br><br>
 <img width="290" height="148" alt="image" src="https://github.com/user-attachments/assets/bb4454b8-bbb6-4cec-881d-315a0f0d1553" />
-<br>
+<br><br>
+Furthermore, some negative transactions contain empty strings in the 'Description' column (the item name).<br><br>
 <img width="377" height="241" alt="image" src="https://github.com/user-attachments/assets/9da656fd-9053-4eec-a3df-fd1494489a19" />
+<br><br>
+ The next step is to check all remaining missing values, including both NULLs and empty strings, across each column.<br><br>
 
-**3. Missing Values(NULL & Empty Strings)**
+### 3. Missing Values(NULL & Empty Strings)
 <br><br>
 <img width="539" height="238" alt="image" src="https://github.com/user-attachments/assets/8526de4e-4ef0-4181-89c0-02765fbdeb98" />
 <br>
@@ -58,12 +61,12 @@ Before cleaning the data, check the row count.<br>
 <img width="547" height="434" alt="image" src="https://github.com/user-attachments/assets/e29bd06c-dde4-4d20-996f-b6a632a1f28a" />
 <br>
 
-**4. Date/Time Range and Format Validation**
+### 4. Date/Time Range and Format Validation
 <br><br>
 <img width="344" height="182" alt="image" src="https://github.com/user-attachments/assets/3d546f5b-5509-4f82-921b-0da477ceafc9" />
 <br>
 
-**5. Product Description Noise Filtration**
+### 5. Product Description Noise Filtration
 <br><br>
 <img width="283" height="461" alt="image" src="https://github.com/user-attachments/assets/09519679-bc86-4902-92ba-6a2962b27993" />
 <br>
@@ -74,7 +77,7 @@ Before cleaning the data, check the row count.<br>
 <img width="650" height="635" alt="image" src="https://github.com/user-attachments/assets/0841fa41-83e8-4ced-9546-8ee9fdab8095" />
 
 
-**6. Product Name Standardization and Categorization**
+### 6. Product Name Standardization and Categorization
 <br><br>
 
 

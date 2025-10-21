@@ -69,13 +69,14 @@ Through the InvoiceDate, this data shows that sold history between 01/10/2011 ~ 
 <br><br>
 
 ### 5. Product Description Noise Filtration
-<br><br>
+Descrpition column contains diverse non-standard descriptions(eg. ? , damaged, cracked, sold, sample, display and etc).  I first confirmed that these entries constituted a minority of the records.The discovery process leveraged aggregation and sorting to quickly surface these infrequent patterns. <br><br>
 <img width="283" height="461" alt="image" src="https://github.com/user-attachments/assets/09519679-bc86-4902-92ba-6a2962b27993" />
-<br>
+<br><br>
+<br><br>
 <img width="273" height="452" alt="image" src="https://github.com/user-attachments/assets/204083fd-58b6-47ea-8d95-98f9719f78ad" />
-<br>
+<br><br>
 <img width="280" height="275" alt="image" src="https://github.com/user-attachments/assets/44f98fad-300c-4442-b9c9-b78f62966341" />
-<br>
+<br><br>
 <img width="650" height="635" alt="image" src="https://github.com/user-attachments/assets/0841fa41-83e8-4ced-9546-8ee9fdab8095" />
 
 

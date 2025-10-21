@@ -64,9 +64,9 @@ As a result, customer ID colunn confirmed for all 135,080 missing datas. Seperat
 However, missing data is **24.93%** of total records. With **24.93%** deletion is impractical. Instead, the non missing and smiliar data will be retained and analyzed by utilizing Invoice Column.<br><br> 
 
 ### 4. Date/Time Range and Format Validation
-<br><br>
+Through the InvoiceDate, this data shows that sold history between 01/10/2011 ~ 09/09/2011, 8 months. To time-series analysis, I will proceed by transforming the date data, extracting **year, month, and day** to simplify subsequent analyses. <br><br>
 <img width="344" height="182" alt="image" src="https://github.com/user-attachments/assets/3d546f5b-5509-4f82-921b-0da477ceafc9" />
-<br>
+<br><br>
 
 ### 5. Product Description Noise Filtration
 <br><br>

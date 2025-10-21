@@ -49,18 +49,19 @@ Furthermore, some negative transactions contain empty strings in the 'Descriptio
  The next step is to check all remaining missing values, including both NULLs and empty strings, across each column.<br><br>
 
 ### 3. Missing Values(NULL & Empty Strings)
-There are not NULL Value in each column. But I'm tried to find empty value, just in case. <br><br>
+An initial data quality check was performed to confirm the integrity of the dataset. The query below specifically verifies the presence of NULL values across all key columns. <br><br>
 <img width="539" height="238" alt="image" src="https://github.com/user-attachments/assets/8526de4e-4ef0-4181-89c0-02765fbdeb98" />
 <br><br>
-In this dataset, there are 135,080 empty cells and according to results, there are many empty cells in Customer ID. <br><br>
+While the dataset contained no explicit NULL values, a proactive check for empty strings ('') was executed, as they can also indicate missing data. This analysis revealed a significant finding: 135,080 empty cells across the dataset. <br><br>
 <img width="206" height="243" alt="image" src="https://github.com/user-attachments/assets/323dba5d-7f1d-4595-b81e-07280882d3e7" />
 <br><br>
-To see in detail, aggregate each coulumn having empty cells.<br><br> 
 <img width="502" height="240" alt="image" src="https://github.com/user-attachments/assets/3566882f-e31f-4678-a570-bdb0d60e8b97" />
 <br><br>
-<br><br>
+To understand the exact distribution of missing data, I proceeded to aggregate the empty cell count for every column.<br><br> 
 <img width="547" height="434" alt="image" src="https://github.com/user-attachments/assets/e29bd06c-dde4-4d20-996f-b6a632a1f28a" />
 <br><br>
+As a result, customer ID colunn confirmed for all 135,080 missing datas. Seperately, 1454 duplicates in entries were also indentifued with the Descriotion column. 
+However, missing data is **24.93%** of total records. With **24.93%** deletion is impractical. Instead, the non missing and smiliar data will be retained and analyzed by utilizing Invoice Column.<br><br> 
 
 ### 4. Date/Time Range and Format Validation
 <br><br>

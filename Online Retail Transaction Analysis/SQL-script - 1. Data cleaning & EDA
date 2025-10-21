@@ -116,9 +116,100 @@ SELECT
 FROM "data" 
 
 
-
-
 #  5. Product Description Noise Filtration
+--1 CNT_Description 
+SELECT 
+	Description,
+	count(Description) AS CNT_PRODUCT
+FROM "data" 
+GROUP BY Description;
+
+
+--1.2 CNT_GROUP Description
+WITH A AS (SELECT 
+	Description,
+	count(Description)
+FROM "data" 
+GROUP BY Description
+)
+SELECT COUNT(*)
+FROM A;
+
+--1.4 finding Outlier in Product name 
+SELECT * 
+FROM data
+WHERE 
+    UPPER(Description) LIKE '%ERROR%' OR 
+    UPPER(Description) LIKE '%SAMPLE%' OR
+    UPPER(Description) LIKE '%DAMAGED%' OR
+    UPPER(Description) LIKE '%ADJUST%' OR
+    UPPER(Description) LIKE '%BROKEN%' OR
+    UPPER(Description) LIKE '%CAN''T FIND%' OR
+    UPPER(Description) LIKE '%CRACKED%' OR
+    UPPER(Description) LIKE '%CRUSHED%' OR
+    UPPER(Description) LIKE '%INCORRECTLY%' OR
+    UPPER(Description) LIKE '%LOST%' OR
+    UPPER(Description) LIKE '%MOULDY%' OR
+    UPPER(Description) LIKE '%THROWN AWAY%' OR
+    UPPER(Description) LIKE '%UNSALEABLE%' OR
+    UPPER(Description) LIKE '%SHOWROOM%' OR
+    UPPER(Description) LIKE '%SOLD' OR
+    UPPER(Description) LIKE '%WRONG%' OR
+    UPPER(Description) LIKE '%RUSTY%' OR
+    UPPER(Description) LIKE '%RETURN%' OR
+    UPPER(Description) LIKE '%MIXED' OR
+    UPPER(Description) LIKE '%?%' OR 
+    UPPER(Description) LIKE '%damage%' OR 
+	UPPER(Description) LIKE 'wet%' OR
+	UPPER(Description) LIKE '%Found%' OR 
+	UPPER(Description) LIKE '%display%' OR
+	UPPER(Description) LIKE '%Dotcom%' OR
+	UPPER(Description) LIKE '%sold%'
+ORDER BY Description DESC;
+
+
+--1.5 Delete Outlier in Product name 
+DELETE 
+FROM data
+WHERE 
+    UPPER(Description) LIKE '%ERROR%' OR 
+    UPPER(Description) LIKE '%SAMPLE%' OR
+    UPPER(Description) LIKE '%DAMAGED%' OR
+    UPPER(Description) LIKE '%ADJUST%' OR
+    UPPER(Description) LIKE '%BROKEN%' OR
+    UPPER(Description) LIKE '%CAN''T FIND%' OR
+    UPPER(Description) LIKE '%CRACKED%' OR
+    UPPER(Description) LIKE '%CRUSHED%' OR
+    UPPER(Description) LIKE '%INCORRECTLY%' OR
+    UPPER(Description) LIKE '%LOST%' OR
+    UPPER(Description) LIKE '%MOULDY%' OR
+    UPPER(Description) LIKE '%THROWN AWAY%' OR
+    UPPER(Description) LIKE '%UNSALEABLE%' OR
+    UPPER(Description) LIKE '%SHOWROOM%' OR
+    UPPER(Description) LIKE '%SOLD' OR
+    UPPER(Description) LIKE '%WRONG%' OR
+    UPPER(Description) LIKE '%RUSTY%' OR
+    UPPER(Description) LIKE '%RETURN%' OR
+    UPPER(Description) LIKE '%MIXED' OR
+    UPPER(Description) LIKE '%?%' OR 
+    UPPER(Description) LIKE '%damage%' OR 
+	UPPER(Description) LIKE 'wet%' OR
+	UPPER(Description) LIKE '%Found%' OR 
+	UPPER(Description) LIKE '%display%' OR
+	UPPER(Description) LIKE '%Dotcom%' OR
+	UPPER(Description) LIKE '%sold%';
+	
+
+--1.6 Checking the data after deleting 
+SELECT 
+	COUNT(*) AS cnt_description
+FROM "data"
+
+
+
+
+
+
 
 # 6. Product Name Standardization and Categorization
 

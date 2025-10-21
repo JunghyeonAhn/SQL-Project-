@@ -49,15 +49,18 @@ Furthermore, some negative transactions contain empty strings in the 'Descriptio
  The next step is to check all remaining missing values, including both NULLs and empty strings, across each column.<br><br>
 
 ### 3. Missing Values(NULL & Empty Strings)
-<br><br>
+There are not NULL Value in each column. But I'm tried to find empty value, just in case. <br><br>
 <img width="539" height="238" alt="image" src="https://github.com/user-attachments/assets/8526de4e-4ef0-4181-89c0-02765fbdeb98" />
-<br>
+<br><br>
+In this dataset, there are 135,080 empty cells and according to results, there are many empty cells in Customer ID. <br><br>
 <img width="206" height="243" alt="image" src="https://github.com/user-attachments/assets/323dba5d-7f1d-4595-b81e-07280882d3e7" />
-<br>
+<br><br>
+To see in detail, aggregate each coulumn having empty cells.<br><br> 
 <img width="502" height="240" alt="image" src="https://github.com/user-attachments/assets/3566882f-e31f-4678-a570-bdb0d60e8b97" />
-<br>
+<br><br>
+<br><br>
 <img width="547" height="434" alt="image" src="https://github.com/user-attachments/assets/e29bd06c-dde4-4d20-996f-b6a632a1f28a" />
-<br>
+<br><br>
 
 ### 4. Date/Time Range and Format Validation
 <br><br>

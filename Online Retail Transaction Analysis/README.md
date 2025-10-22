@@ -73,15 +73,19 @@ Descrpition column contains diverse outliers(eg. ? , damaged, cracked, sold, sam
 <img width="283" height="461" alt="image" src="https://github.com/user-attachments/assets/09519679-bc86-4902-92ba-6a2962b27993" />
 <br><br>
 I identified the outliers by utilising aggregation and descending sorting of the item counts. This process revealed that most unstandard values were infrequent, appearing only once or twice in the dataset. <br><br>
-01. Outliers in Description column. <br>
+ 01. Outliers in Description column. <br>
 <img width="273" height="452" alt="image" src="https://github.com/user-attachments/assets/204083fd-58b6-47ea-8d95-98f9719f78ad" />
 <br><br>
 02. Outliers in Description column. <br>
 <img width="280" height="275" alt="image" src="https://github.com/user-attachments/assets/44f98fad-300c-4442-b9c9-b78f62966341" />
 <br><br>
+To effectively remove the noise, I identified and categorized several words that represented outlier values including sold, error, crack, rusty, etc.  <br><br>
 <img width="650" height="635" alt="image" src="https://github.com/user-attachments/assets/0841fa41-83e8-4ced-9546-8ee9fdab8095" />
-
-
+<br><br>
+After identifying and deleting the outliers, 2,166 rows were removed, leaving 539,743 rows from the original 541,909 for further analysis. <br><br>
+<img width="283" height="353" alt="image" src="https://github.com/user-attachments/assets/e10b3216-2172-4f54-930a-3cfdfae83dfb" />
+<br><br>
+Through these steps, I obtain a cleaner and more reliable dataset. The next **Crucial** step for Cleaning the data is to categorize the item names in the Description Column to enable meaningful analysing. <br><br>
 ### 6. Product Name Standardization and Categorization
 <br><br>
 

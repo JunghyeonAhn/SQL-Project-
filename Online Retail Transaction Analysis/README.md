@@ -91,7 +91,22 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 
 ## Project 2: Product-Centric Analysis
 
-[View SQL query](-)
+[View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%202.%20Product-Centric%20Analysis)
+
+### 1. Overview - Total revenue 
+
+<br><br>
+
+### 2. TOP 10 Purchased items
+
+<br><br>
+
+### 3. TOP 3 Sales items by country 
+
+<br><br>
+### 4. Top3 sales items by months
+
+<br><br>
 
 <br><br>
 ![Preview the data](-)

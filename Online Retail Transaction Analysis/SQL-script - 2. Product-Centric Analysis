@@ -1,0 +1,47 @@
+/* Title:  2. Product-Centric Analysis 
+   Description : 
+
+    [Cleaning Step]
+    1. OVERVIEW_ TOTAL REVENUE 
+    2. TOP 10 INVOICE 
+      2.1 OVER 2 items
+      2.2 Less 2 items
+*/
+
+
+- OVERVIEW_ TOTAL REVENUE 
+SELECT 
+	Description,	
+	COUNT(*) AS orders,
+	ROUND(SUM(Unitprice*Quantity),1) AS revenue,
+	ROUND(AVG(Unitprice*Quantity),2) AS avg_price,
+	MAX(FinalInvoiceDate) AS latest_sale_date
+FROM NEW_DATA 
+GROUP BY Description
+ORDER BY orders desc, revenue desc
+
+--TOP 10 INVOICE
+-- over 2 item 
+SELECT
+	InvoiceNo,
+	Country,
+	quantity,
+	SUM(Quantity * UnitPrice) AS total_order_spend,
+	GROUP_CONCAT(Description) AS Item_purchased
+FROM NEW_DATA
+GROUP BY InvoiceNo
+HAVING COUNT(Description) > 1 
+ORDER BY total_order_spend DESC
+LIMIT 10 
+
+-- less 2 item 
+SELECT
+	InvoiceNo,
+	Country,
+	quantity,
+	SUM(Quantity * UnitPrice) AS total_order_spend,
+	GROUP_CONCAT(Description) AS Item_purchased
+FROM NEW_DATA
+GROUP BY InvoiceNo
+ORDER BY total_order_spend DESC
+LIMIT 10 

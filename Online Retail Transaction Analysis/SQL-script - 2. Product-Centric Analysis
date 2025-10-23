@@ -2,12 +2,11 @@
    Description : 
 
     [Cleaning Step]
-    1. OVERVIEW_ TOTAL REVENUE 
-    2. TOP 10 INVOICE 
-      2.1 OVER 2 items
-      2.2 Less 2 items
+    1. Overview Total revenue 
+    2. TOP 10 Purchased items
+	3. TOP 3 Sales items by country 
+	4. Top3 sales items by months
 */
-
 
 - OVERVIEW_ TOTAL REVENUE 
 SELECT 
@@ -20,28 +19,71 @@ FROM NEW_DATA
 GROUP BY Description
 ORDER BY orders desc, revenue desc
 
---TOP 10 INVOICE
--- over 2 item 
-SELECT
-	InvoiceNo,
-	Country,
-	quantity,
-	SUM(Quantity * UnitPrice) AS total_order_spend,
-	GROUP_CONCAT(Description) AS Item_purchased
-FROM NEW_DATA
-GROUP BY InvoiceNo
-HAVING COUNT(Description) > 1 
-ORDER BY total_order_spend DESC
-LIMIT 10 
+-TOP 10 Purchased items
+SELECT 
+	Description,	
+	SUM(quantity) AS orders,
+	ROUND(SUM(Unitprice*Quantity),1) AS revenue,
+	ROUND(AVG(Unitprice*Quantity),2) AS AOV,
+	MAX(FinalInvoiceDate) AS latest_sale_date
+FROM NEW_DATA 
+GROUP BY Description
+ORDER BY orders desc
+LIMIT 10;
 
--- less 2 item 
-SELECT
-	InvoiceNo,
+
+-- TOP 3 Sales items by country 
+SELECT 
 	Country,
-	quantity,
-	SUM(Quantity * UnitPrice) AS total_order_spend,
-	GROUP_CONCAT(Description) AS Item_purchased
+	Description,
+	orders,
+	revenue,
+	AOV
+FROM (
+	SELECT 
+		Country,
+		Description,
+		SUM(quantity) AS orders,
+		ROUND(SUM(Unitprice*Quantity),1) AS revenue,
+		ROUND(AVG(Unitprice*Quantity),2) AS AOV,
+	RANK() OVER (
+		PARTITION BY Country
+		ORDER BY SUM(quantity) DESC
+	) AS country_rank
 FROM NEW_DATA
-GROUP BY InvoiceNo
-ORDER BY total_order_spend DESC
-LIMIT 10 
+GROUP BY Country, Description
+)
+WHERE country_rank <= 3
+ORDER BY Country ASC, orders DESC;
+
+
+
+-- Top3 sales items by months
+WITH Monthly_Sales AS (
+	SELECT
+		Description,
+		SUBSTR(FinalInvoiceDate, 1, 7) AS sales_month, 
+        SUM(Quantity) AS monthly_orders
+	FROM NEW_DATA
+	GROUP BY sales_month, Description 
+),
+Ranked_Sales AS ( 
+	SELECT
+		Description,
+		sales_month,
+		monthly_orders,
+		RANK() OVER( 
+			PARTITION BY sales_month
+			ORDER BY monthly_orders DESC 
+		) AS month_rank
+	FROM Monthly_Sales
+)
+SELECT 
+	sales_month,
+    Description,
+    monthly_orders
+FROM Ranked_Sales
+WHERE month_rank <= 3
+ORDER BY sales_month ASC, monthly_orders DESC;
+
+

@@ -1,0 +1,132 @@
+/* Title:  3. Customer-Centric Analysis
+   Description : 
+
+    [Cleaning Step]
+    1. Overview Customer 
+    2. Repurchase_Rate_Percentage
+	  3. Purchase pattern by Country 
+	  4. Top 10 Customer
+      4.1 -- over 2 item 
+      4.2 -- less 2 item 
+    5. Purchased items by CustomerID
+    6. Purchases by Months
+*/
+
+- 1. Overview Customer 
+SELECT 
+	CustomerID,
+	Country,
+	Description,
+	Quantity,
+	ROUND(SUM(Quantity * UnitPrice),0) AS LTV,
+	ROUND(SUM(Quantity * UnitPrice)/COUNT(DISTINCT InvoiceNO), 0) AS AOV 
+FROM NEW_DATA
+WHERE Quantity > 1 AND CustomerID <> ""
+GROUP BY CustomerID, Country
+ORDER BY LTV  DESC;
+
+
+-2. Repurchase_Rate_Percentage
+WITH Purchase_History AS (
+	SELECT 
+		CustomerID ,
+		COUNT(DISTINCT FinalInvoiceDate) AS distinct_purchase_days
+	FROM NEW_DATA
+	WHERE CustomerID  IS NOT NULL 
+	GROUP BY CustomerID
+)
+SELECT
+	SUM(CASE WHEN distinct_purchase_days >= 2 THEN 1 ELSE 0 END) AS Repurchasing_Customers,
+	COUNT(CustomerID) AS Total_customers,
+	ROUND(
+        CAST(SUM(CASE WHEN distinct_purchase_days >= 2 THEN 1 ELSE 0 END) AS REAL) * 100.0 
+        / 
+        COUNT(CustomerID), 
+    2) AS Repurchase_Rate_Percentage
+FROM Purchase_History;
+
+- 3. Purchase pattern by Country 
+SELECT 
+	Country,
+	COUNT(DISTINCT CustomerID) AS customer,
+	SUM(Quantity) AS Total_orders,
+	ROUND(SUM(Quantity * UnitPrice),0) AS Revenue,
+	ROUND(sum(Quantity * UnitPrice)/COUNT(DISTINCT InvoiceNO),0) AS AOV 
+FROM NEW_DATA
+WHERE CustomerID <> ""
+GROUP BY Country
+ORDER BY  Revenue DESC;
+
+- 4. TOP 10 Customer
+-- 4.1 Over 2 items
+SELECT
+	CustomerID,
+	Country,
+	quantity,
+	SUM(Quantity * UnitPrice) AS total_order_spend,
+	GROUP_CONCAT(Description) AS Item_purchased
+FROM NEW_DATA
+WHERE CustomerID <> ""
+GROUP BY InvoiceNo
+HAVING COUNT(Description) > 1 
+ORDER BY total_order_spend DESC
+LIMIT 10;
+
+-- 4.2 Less 2 items
+SELECT
+	CustomerID,
+	Country,
+	quantity,
+	SUM(Quantity * UnitPrice) AS total_order_spend,
+	GROUP_CONCAT(Description) AS Item_purchased
+FROM NEW_DATA
+WHERE CustomerID <> ""
+GROUP BY CustomerID
+ORDER BY total_order_spend DESC
+LIMIT 10;
+
+
+- 5. Purchased items by CustomerID
+SELECT 	
+	CustomerID,
+	SUM(Quantity) AS Total_orders,
+	GROUP_CONCAT(Description) AS Item_purchased
+FROM NEW_DATA
+WHERE CustomerID <> ""
+GROUP BY CustomerID
+HAVING COUNT(Description) > 1 
+ORDER BY Total_orders desc;
+
+
+- 6. Purchases by Months
+SELECT 
+	SUBSTR(FinalInvoiceDate, 1, 7) AS sales_month,
+	ROUND(SUM(Quantity * UnitPrice),0) AS mothly_revenue,
+	SUM(Quantity) AS mothly_orders,
+	ROUND(SUM(Quantity * UnitPrice)/COUNT(DISTINCT InvoiceNO),0) AS mothly_AOV 
+FROM (
+	SELECT
+		FinalInvoiceDate, 
+		Quantity,
+		UnitPrice,
+		InvoiceNO
+	FROM NEW_DATA
+	)
+GROUP BY sales_month
+ORDER BY sales_month ASC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

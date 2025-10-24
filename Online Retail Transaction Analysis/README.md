@@ -118,31 +118,32 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 [View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%203.%20%20Customer-Centric%20Analysis)
 
 ### 1. Overview - Customer 
-
+<img width="511" height="361" alt="image" src="https://github.com/user-attachments/assets/ca0ff003-b90b-436e-84e5-009ea52469e4" />
 <br><br>
 
 ### 2. Repurchase_Rate_Percentage
-
+<img width="514" height="314" alt="image" src="https://github.com/user-attachments/assets/ed50f5e4-2052-48b0-b38e-b79ab10c30d3" />
 <br><br>
 
 ### 3. Purchase pattern by Country 
-
+<img width="430" height="491" alt="image" src="https://github.com/user-attachments/assets/dd67951c-cf02-4638-b5c3-5753aaf1aacd" />
 <br><br>
+
 ### 4. TOP 10 Customer
-
-<br><br>
 #### 4.1 Over 2 items
-
+<img width="528" height="400" alt="image" src="https://github.com/user-attachments/assets/81c077bd-964c-4613-9d68-773767779df1" />
 <br><br>
+
 #### 4.2 Less 2 items
-
+<img width="527" height="362" alt="image" src="https://github.com/user-attachments/assets/0502d839-f36c-42c2-bd17-4fb6890cc6da" />
 <br><br>
+
 ### 5. Purchased items by CustomerID
-
+<img width="522" height="418" alt="image" src="https://github.com/user-attachments/assets/1235becb-7754-481f-8b7d-d43ab7584cdf" />
 <br><br>
+
 ### 6. Purchases by Months
-
-
+<img width="736" height="395" alt="image" src="https://github.com/user-attachments/assets/9282a9d3-8414-48b4-b8c1-91d012d254f6" />
 <br><br>
 
 

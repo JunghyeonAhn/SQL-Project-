@@ -24,7 +24,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 ## Table of Contents
 - [Project 1: Cleaning the data](#project-1-cleaning-the-data)
 - [Project 2: Product-Centric Analysis](#project-2-product-centric-analysis)
-- [Project 3: Time Series Analysis](#project-3-time-series-analysis)
+- [Project 3: Customer-Centric Analysis](#project-3-Customer-Centric-Analysis)
 
 # Projects:
 ## Project 1: Cleaning the data
@@ -113,9 +113,9 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 
 
 
-## Project 3: Time Series Analysis
+## Project 3: Customer-Centric Analysis
 
-[View SQL query](-)
+[View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%203.%20%20Customer-Centric%20Analysis)
 
 
 

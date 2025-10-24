@@ -94,18 +94,16 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 [View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%202.%20Product-Centric%20Analysis)
 
 ### 1. Overview - Total revenue 
-
+<img width="455" height="355" alt="image" src="https://github.com/user-attachments/assets/56400990-2f23-48d2-ba44-e6a8c5d41f70" />
 <br><br>
-
-### 2. TOP 10 Purchased items
-
-<br><br>
+#### 1.1 Top 10 Purchased items
+<img width="470" height="377" alt="image" src="https://github.com/user-attachments/assets/e69bc7f6-bada-416a-9258-cf3b990ce7fa" />
 
 ### 3. TOP 3 Sales items by country 
-
+<img width="486" height="578" alt="image" src="https://github.com/user-attachments/assets/746dd38c-8383-450f-aefa-c71e0fba6761" />
 <br><br>
 ### 4. Top3 sales items by months
-
+<img width="506" height="565" alt="image" src="https://github.com/user-attachments/assets/7c95b695-7f30-46ac-82fb-63c058e91d8d" />
 <br><br>
 
 <br><br>

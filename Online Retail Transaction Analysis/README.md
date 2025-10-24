@@ -1,13 +1,15 @@
 # 🛒Online Retail Transaction Analysis
-In this project, I analyzed a shopping trends dataset using **MySQL** in the **DBeaver environment**.  
+In this project involved the comprehensive cleaning and analysis of an E-commerce dataset between 2010 and 2011, utilising MySQL in the DBeaver environment.
 
-The analysis covers the entire workflow:
-- **Data Cleaning**: handling missing values, wrong product name, and product Name standardisation and categorisation  
-- **Product-Centric Analysis**: 
-- **Time Series Analysis**:
-- **Actionable Insights**: 
+#### Key Phases:
 
-This work demonstrates my ability to use SQL for **discovering consumer purchase insights through retail data analysis**, from raw data exploration to generating insights that can inform marketing and product decisions.
+**Data Cleaning:** Managing missing values, deleting noise/outlier, handling date and time 
+**Product-Centric Analysis:** Analysing revenue, item sales across countries and months 
+**Customer-Centric Analysis:** Analysing Customer lifetime value, repurchase rate, Purchase pattern by Country, each customer and months
+
+**Actionable Insights:**
+This work demonstrates my  data analysis ability using SQL. I cleaned the outliers in item names, explored  E-commerce dataset, discovering purchase and customer insights to infrom strategic marketing and product planning
+
 
 
 Feel free to connect with me via: 

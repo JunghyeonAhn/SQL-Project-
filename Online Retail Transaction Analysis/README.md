@@ -3,9 +3,9 @@ In this project involved the comprehensive cleaning and analysis of an E-commerc
 
 #### Key Phases:
 
-**Data Cleaning:** Managing missing values, deleting noise/outlier, handling date and time 
-**Product-Centric Analysis:** Analysing revenue, item sales across countries and months 
-**Customer-Centric Analysis:** Analysing Customer lifetime value, repurchase rate, Purchase pattern by Country, each customer and months
+**🔶Data Cleaning:** Managing missing values, deleting noise/outlier, handling date and time. <br> 
+**🔶Product-Centric Analysis:** Analysing revenue, item sales across countries and months. <br> 
+**🔶Customer-Centric Analysis:** Analysing Customer lifetime value, repurchase rate, Purchase pattern by Country, each customer and months.<br>
 
 **Actionable Insights:**
 This work demonstrates my  data analysis ability using SQL. I cleaned the outliers in item names, explored  E-commerce dataset, discovering purchase and customer insights to infrom strategic marketing and product planning

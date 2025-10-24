@@ -100,21 +100,14 @@ ORDER BY Total_orders desc;
 
 - 6. Purchases by Months
 SELECT 
-	SUBSTR(FinalInvoiceDate, 1, 7) AS sales_month,
-	ROUND(SUM(Quantity * UnitPrice),0) AS mothly_revenue,
-	SUM(Quantity) AS mothly_orders,
-	ROUND(SUM(Quantity * UnitPrice)/COUNT(DISTINCT InvoiceNO),0) AS mothly_AOV 
-FROM (
-	SELECT
-		FinalInvoiceDate, 
-		Quantity,
-		UnitPrice,
-		InvoiceNO
-	FROM NEW_DATA
-	)
+    SUBSTR(FinalInvoiceDate, 1, 4) || '-' || 
+    printf('%02d', CAST(SUBSTR(FinalInvoiceDate, 6, INSTR(SUBSTR(FinalInvoiceDate, 6), '-') - 1) AS INTEGER)) AS sales_month,
+    ROUND(SUM(Quantity * UnitPrice), 0) AS monthly_revenue,
+    SUM(Quantity) AS monthly_orders,
+    ROUND(SUM(Quantity * UnitPrice) / COUNT(DISTINCT InvoiceNo), 0) AS monthly_AOV
+FROM NEW_DATA
 GROUP BY sales_month
-ORDER BY sales_month ASC;
-
+ORDER BY DATE(sales_month || '-01') ASC;
 
 
 

@@ -3,23 +3,12 @@
 
     [Cleaning Step]
     1. Overview Total revenue 
-    2. TOP 10 Purchased items
-	3. TOP 3 Sales items by country 
-	4. Top3 sales items by months
+    2. Top 10 Purchased items
+	3. Top 3 Sales items by Country 
+	4. Top 3 sales items by Months
 */
 
-- OVERVIEW_ TOTAL REVENUE 
-SELECT 
-	Description,	
-	COUNT(*) AS orders,
-	ROUND(SUM(Unitprice*Quantity),1) AS revenue,
-	ROUND(AVG(Unitprice*Quantity),2) AS avg_price,
-	MAX(FinalInvoiceDate) AS latest_sale_date
-FROM NEW_DATA 
-GROUP BY Description
-ORDER BY orders desc, revenue desc
-
--TOP 10 Purchased items
+- 1. Overview Total revenue 
 SELECT 
 	Description,	
 	SUM(quantity) AS orders,
@@ -28,11 +17,22 @@ SELECT
 	MAX(FinalInvoiceDate) AS latest_sale_date
 FROM NEW_DATA 
 GROUP BY Description
-ORDER BY orders desc
+ORDER BY revenue desc
+
+- 2. Top 10 Purchased items
+SELECT 
+	Description,	
+	SUM(quantity) AS orders,
+	ROUND(SUM(Unitprice*Quantity),1) AS revenue,
+	ROUND(AVG(Unitprice*Quantity),2) AS AOV,
+	MAX(FinalInvoiceDate) AS latest_sale_date
+FROM NEW_DATA 
+GROUP BY Description
+ORDER BY revenue desc
 LIMIT 10;
 
 
--- TOP 3 Sales items by country 
+- 3. Top 3 Sales items by Country
 SELECT 
 	Country,
 	Description,
@@ -54,16 +54,16 @@ FROM NEW_DATA
 GROUP BY Country, Description
 )
 WHERE country_rank <= 3
-ORDER BY Country ASC, orders DESC;
+ORDER BY Country ASC, revenue DESC;
 
 
 
--- Top3 sales items by months
+- 4. Top 3 sales items by Months
 WITH Monthly_Sales AS (
 	SELECT
 		Description,
 		SUBSTR(FinalInvoiceDate, 1, 7) AS sales_month, 
-        SUM(Quantity) AS monthly_orders
+        ROUND(SUM(Quantity*Unitprice),1) AS monthly_revenue
 	FROM NEW_DATA
 	GROUP BY sales_month, Description 
 ),
@@ -71,19 +71,19 @@ Ranked_Sales AS (
 	SELECT
 		Description,
 		sales_month,
-		monthly_orders,
+		monthly_revenue,
 		RANK() OVER( 
 			PARTITION BY sales_month
-			ORDER BY monthly_orders DESC 
+			ORDER BY monthly_revenue DESC 
 		) AS month_rank
 	FROM Monthly_Sales
 )
 SELECT 
 	sales_month,
     Description,
-    monthly_orders
+    monthly_revenue
 FROM Ranked_Sales
 WHERE month_rank <= 3
-ORDER BY sales_month ASC, monthly_orders DESC;
+ORDER BY sales_month ASC, monthly_revenue DESC;
 
 

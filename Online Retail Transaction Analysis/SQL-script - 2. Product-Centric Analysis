@@ -12,10 +12,11 @@
 SELECT 
 	Description,	
 	SUM(quantity) AS orders,
-	ROUND(SUM(Unitprice*Quantity),1) AS revenue,
-	ROUND(AVG(Unitprice*Quantity),2) AS AOV,
+	ROUND(SUM(Unitprice*Quantity),0) AS revenue,
+	ROUND(SUM(Unitprice*Quantity)/COUNT(InvoiceNO),0) AS AOV,
 	MAX(FinalInvoiceDate) AS latest_sale_date
 FROM NEW_DATA 
+WHERE customerID <> ""
 GROUP BY Description
 ORDER BY revenue desc
 
@@ -23,14 +24,13 @@ ORDER BY revenue desc
 SELECT 
 	Description,	
 	SUM(quantity) AS orders,
-	ROUND(SUM(Unitprice*Quantity),1) AS revenue,
-	ROUND(AVG(Unitprice*Quantity),2) AS AOV,
+	ROUND(SUM(Unitprice*Quantity),0) AS revenue,
+	ROUND(SUM(Unitprice*Quantity)/COUNT(InvoiceNO),0) AS AOV,
 	MAX(FinalInvoiceDate) AS latest_sale_date
 FROM NEW_DATA 
 GROUP BY Description
 ORDER BY revenue desc
 LIMIT 10;
-
 
 - 3. Top 3 Sales items by Country
 SELECT 
@@ -44,8 +44,8 @@ FROM (
 		Country,
 		Description,
 		SUM(quantity) AS orders,
-		ROUND(SUM(Unitprice*Quantity),1) AS revenue,
-		ROUND(AVG(Unitprice*Quantity),2) AS AOV,
+		ROUND(SUM(Unitprice*Quantity),0) AS revenue,
+		ROUND(SUM(Unitprice*Quantity)/COUNT(InvoiceNO),0) AS AOV,
 	RANK() OVER (
 		PARTITION BY Country
 		ORDER BY SUM(quantity) DESC
@@ -63,7 +63,7 @@ WITH Monthly_Sales AS (
 	SELECT
 		Description,
 		SUBSTR(FinalInvoiceDate, 1, 7) AS sales_month, 
-        ROUND(SUM(Quantity*Unitprice),1) AS monthly_revenue
+        ROUND(SUM(Quantity*Unitprice),0) AS monthly_revenue
 	FROM NEW_DATA
 	GROUP BY sales_month, Description 
 ),
@@ -85,5 +85,4 @@ SELECT
 FROM Ranked_Sales
 WHERE month_rank <= 3
 ORDER BY sales_month ASC, monthly_revenue DESC;
-
 

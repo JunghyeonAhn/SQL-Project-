@@ -109,7 +109,7 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 <br><br>
 
 <br><br>
-![Preview the data](-)
+
 
 
 
@@ -117,7 +117,33 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 
 [View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%203.%20%20Customer-Centric%20Analysis)
 
+### 1. Overview - Customer 
 
+<br><br>
+
+### 2. Repurchase_Rate_Percentage
+
+<br><br>
+
+### 3. Purchase pattern by Country 
+
+<br><br>
+### 4. TOP 10 Customer
+
+<br><br>
+#### 4.1 Over 2 items
+
+<br><br>
+#### 4.2 Less 2 items
+
+<br><br>
+### 5. Purchased items by CustomerID
+
+<br><br>
+### 6. Purchases by Months
+
+
+<br><br>
 
 
 

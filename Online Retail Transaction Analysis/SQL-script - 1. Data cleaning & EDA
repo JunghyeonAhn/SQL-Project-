@@ -206,13 +206,31 @@ SELECT
 FROM "data"
 
 
+# 6. Changing Date before analysing
+CREATE VIEW NEW_DATA AS 
+SELECT 
+	DATE(
+	 SUBSTR(T1.DatePart, -4) || '-' || --year
+    REPLACE(SUBSTR(T1.DatePart, 1, INSTR(T1.DatePart, '/')-1), ' ', '') || '-' || -- Month 
+    REPLACE(SUBSTR(T1.DatePart, INSTR(T1.DatePart, '/') + 1, INSTR(SUBSTR(T1.DatePart, INSTR(T1.DatePart, '/') + 1), '/') -1), ' ', '')
+   ) AS FinalInvoiceDate,
+	Description,
+	UnitPrice, 
+ 	StockCode, 
+ 	InvoiceDate,  
+ 	InvoiceNo, 
+ 	Quantity, 
+ 	CustomerID, 
+ 	Country
+ FROM 
+ 	(
+ 		SELECT *,
+ 		SUBSTR(InvoiceDate, 1, INSTR(InvoiceDate, ' ') - 1) AS DatePart
+        FROM "data"
+    ) AS T1;
 
-
-
-
-
-# 6. Product Name Standardization and Categorization
-
+SELECT *
+FROM NEW_DATA 
 
 
 

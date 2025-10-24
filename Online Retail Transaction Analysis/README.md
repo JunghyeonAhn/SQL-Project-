@@ -89,7 +89,7 @@ After identifying and deleting the outliers, 2,166 rows were removed, leaving 53
 ### 6.Changing Date before analysing
 <img width="764" height="264" alt="image" src="https://github.com/user-attachments/assets/dbbacdaa-04e4-4e24-83c0-28d54d322a1b" />
 <br><br>
-I created a VIEW on InvoiceDate column to make it easy to aggregate the data by months.  <br><br>
+I created a VIEW about InvoiceDate column to make it easy to aggregate the data by months.  <br><br>
 <img width="452" height="232" alt="image" src="https://github.com/user-attachments/assets/6d7eadc6-df15-458d-9416-5be6a4d9c8c9" />
 <br><br>
 Through these steps, I obtain a cleaner and more reliable dataset. <br><br>

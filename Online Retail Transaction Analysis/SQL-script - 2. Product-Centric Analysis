@@ -3,7 +3,7 @@
 
     [Cleaning Step]
     1. Overview Total revenue 
-    2. Top 10 Purchased items
+    	1.1. Top 10 Purchased items
 	3. Top 3 Sales items by Country 
 	4. Top 3 sales items by Months
 */
@@ -20,7 +20,7 @@ WHERE customerID <> ""
 GROUP BY Description
 ORDER BY revenue desc
 
-- 2. Top 10 Purchased items
+-- 1.1. Top 10 Purchased items
 SELECT 
 	Description,	
 	SUM(quantity) AS orders,
@@ -28,6 +28,7 @@ SELECT
 	ROUND(SUM(Unitprice*Quantity)/COUNT(InvoiceNO),0) AS AOV,
 	MAX(FinalInvoiceDate) AS latest_sale_date
 FROM NEW_DATA 
+WHERE customerID <> ""
 GROUP BY Description
 ORDER BY revenue desc
 LIMIT 10;
@@ -51,11 +52,11 @@ FROM (
 		ORDER BY SUM(quantity) DESC
 	) AS country_rank
 FROM NEW_DATA
+WHERE customerID <> ""
 GROUP BY Country, Description
 )
 WHERE country_rank <= 3
 ORDER BY Country ASC, revenue DESC;
-
 
 
 - 4. Top 3 sales items by Months
@@ -65,6 +66,7 @@ WITH Monthly_Sales AS (
 		SUBSTR(FinalInvoiceDate, 1, 7) AS sales_month, 
         ROUND(SUM(Quantity*Unitprice),0) AS monthly_revenue
 	FROM NEW_DATA
+	WHERE customerID <> ""
 	GROUP BY sales_month, Description 
 ),
 Ranked_Sales AS ( 

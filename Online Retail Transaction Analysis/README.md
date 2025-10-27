@@ -101,11 +101,11 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 [View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%202.%20Product-Centric%20Analysis)
 
 ### 1. Overview - Total revenue 
-<img width="455" height="355" alt="image" src="https://github.com/user-attachments/assets/56400990-2f23-48d2-ba44-e6a8c5d41f70" />
+<img width="533" height="411" alt="image" src="https://github.com/user-attachments/assets/42833da5-4bc0-439a-a0da-dd6e7b2d3289" />
 <br><br>
 
 #### 1.1. Top 10 Purchased items
-<img width="470" height="377" alt="image" src="https://github.com/user-attachments/assets/e69bc7f6-bada-416a-9258-cf3b990ce7fa" />
+<img width="550" height="395" alt="image" src="https://github.com/user-attachments/assets/5dbe4b4e-8810-4d6e-925e-b3d9f459a66e" />
 <br><br>
 
 ### 2. TOP 3 Sales items by country 
@@ -119,13 +119,12 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 
 
 
-
 ## Project 3: Customer-Centric Analysis
 
 [View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%203.%20%20Customer-Centric%20Analysis)
 
 ### 1. Overview - Customer 
-<img width="511" height="361" alt="image" src="https://github.com/user-attachments/assets/ca0ff003-b90b-436e-84e5-009ea52469e4" />
+<img width="599" height="409" alt="image" src="https://github.com/user-attachments/assets/703ae8e3-1c5f-402a-b360-8bace9799f28" />
 <br><br>
 
 ### 2. Repurchase_Rate_Percentage
@@ -133,7 +132,7 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 <br><br>
 
 ### 3. Purchase pattern by Country 
-<img width="430" height="491" alt="image" src="https://github.com/user-attachments/assets/dd67951c-cf02-4638-b5c3-5753aaf1aacd" />
+<img width="444" height="414" alt="image" src="https://github.com/user-attachments/assets/f788068a-e161-4d46-8a18-eeae3f2bfdf5" />
 <br><br>
 
 ### 4. TOP 10 Customer
@@ -155,6 +154,12 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 
 
 
+## key Insights
+### Summary
+- Uk is main customer for this Ecommerce. Most countries are Europe, however, Singappore is only asian country customer. 
+- Most purchased items in 1 year, was cakestands, ligthholder, bag, lights and etc and in september.
+- Regacy cake stands are always purchased whether Christmas or not.
+- 
 
 
 

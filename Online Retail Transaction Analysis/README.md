@@ -155,7 +155,7 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 
 
 
-## key Insights
+## 🗝️Key Insights
 ### Summary
 - **Top-selling Items** : Products like "Cake stand", "Light", "Light holders" and various "Bag / Boxes" are consistently among the highest-selling products by revenue. The consistent demand for "Cake Stands" year-around, regardless for major Holidays.
 

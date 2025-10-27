@@ -19,11 +19,14 @@ SELECT
 	Description,
 	Quantity,
 	ROUND(SUM(Quantity * UnitPrice),0) AS LTV,
+	ROUND(
+	SUM(Quantity * UnitPrice)*100 / 
+	SUM(SUM(Quantity * UnitPrice)) OVER(), 2) AS Revenue_pct,
 	ROUND(SUM(Quantity * UnitPrice)/COUNT(DISTINCT InvoiceNO), 0) AS AOV 
 FROM NEW_DATA
 WHERE Quantity > 1 AND CustomerID <> ""
 GROUP BY CustomerID, Country
-ORDER BY LTV  DESC;
+ORDER BY Revenue_pct  DESC 
 
 
 -2. Repurchase_Rate_Percentage
@@ -51,11 +54,14 @@ SELECT
 	COUNT(DISTINCT CustomerID) AS customer,
 	SUM(Quantity) AS Total_orders,
 	ROUND(SUM(Quantity * UnitPrice),0) AS Revenue,
+	ROUND(
+	SUM(Quantity * UnitPrice)*100 / 
+	SUM(SUM(Quantity * UnitPrice)) OVER(), 2) AS Revenue_pct,
 	ROUND(sum(Quantity * UnitPrice)/COUNT(DISTINCT InvoiceNO),0) AS AOV 
 FROM NEW_DATA
 WHERE CustomerID <> ""
 GROUP BY Country
-ORDER BY  Revenue DESC;
+ORDER BY  Revenue_pct DESC;
 
 - 4. TOP 10 Customer
 -- 4.1 Over 2 items

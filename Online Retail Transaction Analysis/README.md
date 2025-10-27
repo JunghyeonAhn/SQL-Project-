@@ -27,7 +27,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 - [Project 1: Cleaning the data](#project-1-cleaning-the-data)
 - [Project 2: Product-Centric Analysis](#project-2-product-centric-analysis)
 - [Project 3: Customer-Centric Analysis](#project-3-Customer-Centric-Analysis)
-- [Key Insights](#key-insights)
+- [Key Insights](#Key-insights)
 
 # Projects:
 ## Project 1: Cleaning the data

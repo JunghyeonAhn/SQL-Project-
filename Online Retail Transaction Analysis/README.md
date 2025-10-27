@@ -149,8 +149,9 @@ Through these steps, I obtain a cleaner and more reliable dataset. <br><br>
 <br><br>
 
 ### 6. Purchases by Months
-<img width="736" height="395" alt="image" src="https://github.com/user-attachments/assets/9282a9d3-8414-48b4-b8c1-91d012d254f6" />
+<img width="606" height="392" alt="image" src="https://github.com/user-attachments/assets/a66f4cb1-bbe2-4304-96cd-36488ae18e55" />
 <br><br>
+
 
 
 

@@ -13,6 +13,9 @@ SELECT
 	Description,	
 	SUM(quantity) AS orders,
 	ROUND(SUM(Unitprice*Quantity),0) AS revenue,
+	ROUND(
+	SUM(Unitprice*Quantity)*100/
+	SUM(SUM(Unitprice*Quantity))OVER(),2) AS revenue_pct,
 	ROUND(SUM(Unitprice*Quantity)/COUNT(InvoiceNO),0) AS AOV,
 	MAX(FinalInvoiceDate) AS latest_sale_date
 FROM NEW_DATA 
@@ -20,11 +23,15 @@ WHERE customerID <> ""
 GROUP BY Description
 ORDER BY revenue desc
 
+
 -- 1.1. Top 10 Purchased items
 SELECT 
 	Description,	
 	SUM(quantity) AS orders,
 	ROUND(SUM(Unitprice*Quantity),0) AS revenue,
+	ROUND(
+	SUM(Unitprice*Quantity)*100/
+	SUM(SUM(Unitprice*Quantity))OVER(),2) AS revenue_pct,
 	ROUND(SUM(Unitprice*Quantity)/COUNT(InvoiceNO),0) AS AOV,
 	MAX(FinalInvoiceDate) AS latest_sale_date
 FROM NEW_DATA 

@@ -109,11 +109,15 @@ SELECT
     SUBSTR(FinalInvoiceDate, 1, 4) || '-' || 
     printf('%02d', CAST(SUBSTR(FinalInvoiceDate, 6, INSTR(SUBSTR(FinalInvoiceDate, 6), '-') - 1) AS INTEGER)) AS sales_month,
     ROUND(SUM(Quantity * UnitPrice), 0) AS monthly_revenue,
+    ROUND(
+	SUM(Quantity * UnitPrice)*100 / 
+	SUM(SUM(Quantity * UnitPrice)) OVER(), 2) AS Revenue_pct,
     SUM(Quantity) AS monthly_orders,
     ROUND(SUM(Quantity * UnitPrice) / COUNT(DISTINCT InvoiceNo), 0) AS monthly_AOV
 FROM NEW_DATA
 GROUP BY sales_month
 ORDER BY DATE(sales_month || '-01') ASC;
+
 
 
 

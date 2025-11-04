@@ -80,7 +80,7 @@ However, missing data is **24.93%** of total records. With **24.93%** deletion i
 
 
 
-## Project 2: Product-Centric Analysis
+## Project 2: Hit Song Recipe
 
 [View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%202.%20Product-Centric%20Analysis)
 
@@ -103,7 +103,7 @@ However, missing data is **24.93%** of total records. With **24.93%** deletion i
 
 
 
-## Project 3: Customer-Centric Analysis
+## Project 3: Quantifying Platform Influence
 
 [View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%203.%20%20Customer-Centric%20Analysis)
 
@@ -141,13 +141,7 @@ However, missing data is **24.93%** of total records. With **24.93%** deletion i
 
 ## 🗝️Key Insights
 ### Summary
-- **Top-selling Items** : Products like "Cake stand", "Light", "Light holders" and various "Bag / Boxes" are consistently among the highest-selling products by revenue. The consistent demand for "Cake Stands" year-around, regardless for major Holidays.
 
-- **Average Basket Items**: Through the top 10 customers' baskets, I identified average diverse products for the party or events, including various tissue packs, bags, light, light holder, card, jar, etc.
-
-- **Sales Trend** : Sales exhibit strong peaks in Q4(October, November), however in september sales begin to arise. While the average monthly revenue contribution hoves around 6% - 7%, November represents the absolute peak, contributing 14.91% of total revenue. However, critical finding is the 4.3% Year-over-Year decline in revenue when comparing December 2011 to December 2010.
-
-- **Geographic Concentration** : The UK is the overwhelmingly dominant market, generating 81.51% of total revenue and hosting the largest customer base. While the customer count primarily consists of European countries (e.g. Germany, France, Spain, and Belgium), the revenue concentration reveals a critical disparity. <br><br>Specially, while Geramny and France rank highly in customer count, they are surpassed in terms of total revenue by smaller, high-value markets. The Netherlands (3.44%) and EIRE (3.02%) significantly outperform Germany (2.685%) and France (2.37%) in revenue contribution, This disparity is confirmed by the exceptionally high Average Order Value (AOV) in these markets, particularly The Netherlands (2,818$) and EIRE (783.0$), suggesting these customers are likely high-volume wholesalers or B2B clients.
 
 
 

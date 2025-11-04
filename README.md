@@ -22,7 +22,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 ## Table of Contents
 - Project 1 : [Shopping Trend Analysis](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Shopping%20trend%20analysis/README.md)
 - Project 2 : [Online Retail Transaction Analysis](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/README.md)
-- Project 3 : [Stream Success Factor Analysis](https://github.com/JunghyeonAhn/SQL-Project-/edit/main/Stream%20Success%20Factor%20Analysis/README.md)
+- Project 3 : [Stream Success Factor Analysis](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Stream%20Success%20Factor%20Analysis/README.md#project-2-Hit-Song-Recipe)
 
 
 

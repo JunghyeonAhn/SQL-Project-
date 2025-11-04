@@ -25,8 +25,8 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 
 ## Table of Contents
 - [Project 1: Data Cleaning](#project-1-Data-Cleaning)
-- [Project 2: Product-Centric Analysis](#project-2-product-centric-analysis)
-- [Project 3: Customer-Centric Analysis](#project-3-Customer-Centric-Analysis)
+- [Project 2: Hit Song Recipe](#project-2-Hit-Song-Recipe)
+- [Project 3: Quantifying Platform Influence](#project-3-Quantifying-Platform-Influence)
 - [Key Insights](#%EF%B8%8Fkey-insights)
 
 # Projects:

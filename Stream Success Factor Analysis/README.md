@@ -73,10 +73,14 @@ While the dataset contained no explicit NULL values, a proactive check for empty
 <img width="720" height="568" alt="image" src="https://github.com/user-attachments/assets/b7b3ec0c-e06a-4781-8a65-808fc134bb62" />
 <br><br>
 
+### 4. DELETE Value
+<img width="308" height="253" alt="image" src="https://github.com/user-attachments/assets/3feed0b2-a345-4ea6-94e8-c67869b42ccb" />
+<br><br>
+
+
 
 <br><br>
-As a result, customer ID colunn confirmed for all 135,080 missing datas. Seperately, 1454 duplicates in entries were also indentifued with the Descriotion column. 
-However, missing data is **24.93%** of total records. With **24.93%** deletion is impractical. Instead, the non missing and smiliar data will be retained and analyzed by utilizing Invoice Column.<br><br> 
+As a result, there are some missing value in key, charts coulmn including 0 value in charts and some noise in trackname.However it is not the critical issue for analysing except one noise in streams column, so I will remove it. Then I'm going to analyse the data excepting "Cousticness&" coulumn.   <br><br> 
 
 
 

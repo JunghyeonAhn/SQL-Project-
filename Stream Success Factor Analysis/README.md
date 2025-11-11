@@ -32,7 +32,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 # Projects:
 ## Project 1: Data Cleaning
 
-[View SQL query]()
+[View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Stream%20Success%20Factor%20Analysis/SQL-script%20-%201.%20Data%20cleaning)
 
 ### 1. Preview the data
 Before cleaning the data, check the row count.<br><br>
@@ -86,7 +86,7 @@ As a result, there are some missing value in key, charts coulmn including 0 valu
 
 ## Project 2: EDA & Hit Song Recipe
 
-[View SQL query]()
+[View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Stream%20Success%20Factor%20Analysis/SQL-script%20-%202.%20EDA%20%26%20Hit%20Song%20Recipe)
 
 ### EDA. 1.Overview 
 <img width="625" height="270" alt="image" src="https://github.com/user-attachments/assets/1ec76a06-0ff1-42e0-816b-d3492433a853" />
@@ -125,7 +125,7 @@ As a result, there are some missing value in key, charts coulmn including 0 valu
 
 
 ## Project 3: Platform effeciency
-[View SQL query]()
+[View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Stream%20Success%20Factor%20Analysis/SQL-script%20-%203.%20Platform%20effeciency)
 
 ### 1. Platform effeciency - spotify vs apple 
 #### Total - 1.3%

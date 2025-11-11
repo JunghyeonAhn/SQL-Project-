@@ -2,11 +2,158 @@
    Description : 
 
     [Cleaning Step]
-    1. Preview the data 
-    2. Numeric Outlier Value
-    3. Missing Values(NULL & Empty Strings)
-    4. Date/Time Range and Format Validation
-    5. Product Description Noise Filtration
-    6. Changing Date before analysing
+    1. Outlier in numberic (date, charts)
+    2. Empty & Missing values 
+    3. Outlier in Streams column 
+    4. NOISES in NAME(Artists & track)
+    5. Delete noise
+    6. Overview
         
 */
+-- Outlier in numberic (date, charts)
+SELECT 
+	MAX(released_year),
+	MIN(released_year),
+	MAX(released_month),
+	MIN(released_month),
+	MAX(released_day),
+	MIN(released_day),
+	MAX(artist_count),
+	MIN(artist_count),
+	MAX(in_spotify_charts),
+	MIN(in_spotify_charts),
+	MAX(in_apple_charts),
+	MIN(in_apple_charts),
+	MAX(in_deezer_charts),
+	MIN(in_deezer_charts),	
+	MAX(in_shazam_charts),
+	MIN(in_shazam_charts)	
+FROM spotify
+
+-- (audio features) => "cousticness_%" 
+SELECT 
+	MAX(bpm),
+	MIN(bpm),
+	MAX("danceability_%"),
+	MIN("danceability_%"),
+	MAX("valence_%"),
+	MIN("valence_%"),
+	MAX("energy_%"),
+	MIN("energy_%"),
+	MAX("cousticness_%"),
+	MIN("cousticness_%"),
+	MAX("instrumentalness_%"),
+	MIN("instrumentalness_%"),
+	MAX("liveness_%"),
+	MIN("liveness_%"),	
+	MAX("speechiness_%"),
+	MIN("speechiness_%")	
+FROM spotify
+
+SELECT "cousticness_%"  -- This was not a number value, it was string 
+FROM spotify
+
+-- Empty & Missing values 
+SELECT *
+FROM spotify	
+WHERE 
+	track_name IS NULL OR
+	"artist(s)_name" IS NULL OR
+	artist_count IS NULL OR
+	released_year IS NULL OR
+	released_month IS NULL OR
+	released_day IS NULL OR
+	in_spotify_playlists IS NULL OR
+	in_spotify_charts IS NULL OR
+	streams IS NULL OR
+	in_apple_playlists IS NULL OR
+	in_apple_charts  IS NULL OR
+	in_deezer_playlists IS NULL OR
+	in_deezer_charts IS NULL OR
+	in_shazam_charts  IS NULL OR
+	bpm IS NULL OR
+	key IS NULL OR
+	mode  IS NULL OR
+	"danceability_%" IS NULL OR
+	"valence_%"  IS NULL OR
+	"energy_%"  IS NULL OR
+	"instrumentalness_%"  IS NULL OR
+	"liveness_%" IS NULL OR
+	"speechiness_%" IS NULL
+
+SELECT *
+FROM spotify	
+WHERE 
+	track_name LIKE '' OR
+	"artist(s)_name" LIKE '' OR
+	artist_count LIKE '' OR
+	released_year LIKE '' OR
+	released_month LIKE '' OR
+	released_day LIKE '' OR
+	in_spotify_playlists LIKE '' OR
+	in_spotify_charts LIKE '' OR
+	streams LIKE '' OR
+	in_apple_playlists LIKE '' OR
+	in_apple_charts  LIKE '' OR
+	in_deezer_playlists LIKE '' OR
+	in_deezer_charts LIKE '' OR
+	in_shazam_charts  LIKE '' OR   --  I found missing value in_shazam_charts.
+	bpm LIKE '' OR
+	key LIKE '' OR
+	mode  LIKE '' OR
+	"danceability_%" LIKE '' OR
+	"valence_%"  LIKE '' OR
+	"energy_%"  LIKE '' OR
+	"cousticness_%"  LIKE '' OR
+	"instrumentalness_%"  LIKE '' OR
+	"liveness_%" LIKE '' OR
+	"speechiness_%" LIKE '' 
+
+-- There are 50 missing values in this column. 
+SELECT COUNT(in_shazam_charts) AS cnt_missing_value_in_shazam_charts
+FROM spotify 
+WHERE in_shazam_charts LIKE ""
+
+
+--Outlier in Streams
+SELECT
+	track_name,
+	"artist(s)_name",
+	streams
+FROM spotify	
+WHERE "artist(s)_name" like "Edison Lighthouse"
+GROUP BY track_name
+
+--NOISES in NAME
+SELECT
+	track_name,
+	"artist(s)_name"
+FROM spotify
+ORDER BY track_name DESC, "artist(s)_name" DESC
+
+--DELETE OUTLIER
+DELETE 
+FROM spotify	
+WHERE "artist(s)_name" like "Edison Lighthouse"
+
+-- OVER VIEW
+SELECT *
+FROM spotify
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

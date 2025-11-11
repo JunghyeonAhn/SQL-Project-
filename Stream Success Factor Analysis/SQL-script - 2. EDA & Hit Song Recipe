@@ -1,12 +1,152 @@
-/* Title:  1. EDA & Hit Song Recipe
+/* Title:  2. EDA & Hit Song Recipe
    Description : 
 
-    [Cleaning Step]
-    1. Preview the data 
-    2. Numeric Outlier Value
-    3. Missing Values(NULL & Empty Strings)
-    4. Date/Time Range and Format Validation
-    5. Product Description Noise Filtration
-    6. Changing Date before analysing
-        
+    [Step]
+    1. EDA
+    2. A Comparative Analysis of Audio Features (Top 50 vs. Total)
+    3. Comparative Analysis of Hit Track Playlist Acquisition(Top 50 vs. Total)
+
 */
+
+-- # EDA 
+-- OVER VIEW
+SELECT *
+FROM spotify
+
+-- Song counts by released year
+SELECT 
+	released_year, 
+	count(*) AS SONGS
+FROM spotify	
+GROUP BY released_year 
+ORDER BY SONGS DESC
+
+-- top 10 track
+SELECT
+	track_name,
+	"artist(s)_name",
+	SUM(streams) AS total_streams
+FROM spotify	
+WHERE "artist(s)_name" NOT like "Edison Lighthouse"
+GROUP BY track_name
+ORDER BY total_streams DESC  
+LIMIT 10
+
+-- top 10 artists
+SELECT 
+	"artist(s)_name",
+	SUM(streams) AS total_streams
+FROM spotify
+GROUP BY "artist(s)_name"
+ORDER BY total_streams DESC
+LIMIT 10 
+
+
+
+--# A Comparative Analysis of Audio Features (Top 50 vs. Total)
+-- Total_audio features 
+WITH Whole AS (
+	SELECT
+		track_name,
+		"artist(s)_name",
+		SUM(streams) AS total_streams, 
+		"danceability_%",
+		"energy_%",
+		"valence_%",
+		"acousticness_%",
+		"instrumentalness_%",
+		"liveness_%",
+		"speechiness_%"
+	FROM spotify 
+	GROUP BY track_name, "artist(s)_name"
+) 
+SELECT 
+	ROUND(AVG("danceability_%"),1) AS AVG_danceability,
+	ROUND(AVG("energy_%"),1) AS AVG_energy,
+	ROUND(AVG("valence_%"),1) AS AVG_valence,
+	ROUND(AVG("acousticness_%"),1) AS AVG_acousticness,
+	ROUND(AVG("instrumentalness_%"),1) AS AVG_instrumentalness,
+	ROUND(AVG("liveness_%"),1) AS AVG_liveness,
+	ROUND(AVG("speechiness_%"),1) AS AVG_speechiness
+FROM Whole
+
+--# Average audio features by top 50  AVG_acousticness higher than the TOTAL 
+WITH top_50 AS (
+	SELECT
+		track_name,
+		"artist(s)_name",
+		SUM(streams) AS total_streams, 
+		"danceability_%",
+		"energy_%",
+		"valence_%",
+		"acousticness_%",
+		"instrumentalness_%",
+		"liveness_%",
+		"speechiness_%"
+	FROM spotify 
+	GROUP BY track_name, "artist(s)_name"
+	ORDER BY total_streams DESC  
+	LIMIT 50
+) 
+SELECT 
+	ROUND(AVG("danceability_%"),1) AS AVG_danceability,
+	ROUND(AVG("energy_%"),1) AS AVG_energy,
+	ROUND(AVG("valence_%"),1) AS AVG_valence,
+	ROUND(AVG("acousticness_%"),1) AS AVG_acousticness,
+	ROUND(AVG("instrumentalness_%"),2) AS AVG_instrumentalness,
+	ROUND(AVG("liveness_%"),1) AS AVG_liveness,
+	ROUND(AVG("speechiness_%"),1) AS AVG_speechiness
+FROM top_50
+
+
+-- # Comparative Analysis of Hit Track Playlist Acquisition(Top 50 vs. Total)
+-- TOTAL 
+SELECT
+	SUM(streams) AS total_streams,
+	SUM(in_spotify_playlists) AS total_spotify,
+	ROUND(AVG(in_spotify_playlists),1) AS AVG_spotify,
+	SUM(in_apple_playlists) AS total_apple,
+	ROUND(AVG(in_apple_playlists),1) AS AVG_apple,
+	SUM(in_deezer_playlists) AS total_deezer,
+	ROUND(AVG(in_deezer_playlists),1) AS AVG_deezer
+FROM spotify 
+
+
+-- top 50 
+WITH top_50 AS (
+	SELECT
+		track_name,
+		"artist(s)_name",
+		SUM(streams) AS total_streams,
+		in_spotify_playlists AS S, 
+		in_apple_playlists AS A,
+		in_deezer_playlists AS D
+	FROM spotify 
+	GROUP BY track_name, "artist(s)_name"
+	ORDER BY total_streams DESC  
+	LIMIT 50
+) 
+SELECT 
+	total_streams,
+	SUM(S) AS total_spotify,
+	ROUND(AVG(S),1) AS AVG_spotify,
+	SUM(A) AS total_apple,
+	ROUND(AVG(A),1) AS AVG_apple,
+	SUM(D) AS total_deezer,
+	ROUND(AVG(D),1) AS AVG_deezer
+FROM top_50
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,12 +1,57 @@
-/* Title:  1. Platform effeciency
+/* Title:  3. Platform effeciency
    Description : 
 
-    [Cleaning Step]
-    1. Preview the data 
-    2. Numeric Outlier Value
-    3. Missing Values(NULL & Empty Strings)
-    4. Date/Time Range and Format Validation
-    5. Product Description Noise Filtration
-    6. Changing Date before analysing
+    [Step]
+    1. Spotify vs Apple (Top 50 vs. Total)
+    2. Spotify vs Deezer (Top 50 vs. Total)
+
         
 */
+
+-- # Spotify vs Apple (Top 50 vs. Total)
+-- total spotify vs apple 1.3%
+	SELECT
+	ROUND(CAST(SUM(in_apple_playlists)AS REAL)/ SUM(in_spotify_playlists)*100,1) AS AVG_Ratio_apple
+	FROM spotify;
+
+-- top50 spotify vs apple 1.2%
+WITH top_50 AS (
+	SELECT
+		track_name,
+		"artist(s)_name",
+		SUM(streams) AS total_streams,
+		in_spotify_playlists AS S, 
+		in_apple_playlists AS A,
+		in_deezer_playlists AS D
+	FROM spotify 
+	GROUP BY track_name, "artist(s)_name"
+	ORDER BY total_streams DESC  
+	LIMIT 50
+) 
+SELECT 
+	ROUND(CAST(SUM(A)AS REAL)/ SUM(S)*100,1) AS AVG_Ratio_apple -- 분모(SUM(S))를 실수형(REAL)로 변환하여 나누기 연산을 수행
+FROM top_50;
+
+-- # Spotify vs Deezer (Top 50 vs. Total)
+-- total spotify vs deezer 1.9%
+	SELECT
+	ROUND(CAST(SUM(in_deezer_playlists)AS REAL)/ SUM(in_spotify_playlists)*100,1) AS AVG_Ratio_apple
+	FROM spotify;
+
+-- spotify vs deezer 0.7%
+WITH top_50 AS (
+	SELECT
+		track_name,
+		"artist(s)_name",
+		SUM(streams) AS total_streams,
+		in_spotify_playlists AS S, 
+		in_apple_playlists AS A,
+		in_deezer_playlists AS D
+	FROM spotify 
+	GROUP BY track_name, "artist(s)_name"
+	ORDER BY total_streams DESC  
+	LIMIT 50
+) 
+SELECT 
+	ROUND(CAST(SUM(D)AS REAL)/SUM(S)*100,1) AS AVG_Ratio_deezer
+FROM top_50

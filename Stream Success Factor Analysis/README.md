@@ -145,6 +145,13 @@ As a result, there are some missing value in key, charts coulmn including 0 valu
 <img width="373" height="342" alt="image" src="https://github.com/user-attachments/assets/de374138-39ad-4774-ac3e-6e920416a333" />
 <br><br>
 
+## Project 4 : Identifying correlation
+[View_Python_syntx]()
+### 1. Does 'Acousticness' key factor have more times correlations for success of streamings than playlists? 
+<br><br>
+
+### 2. Correlatioms between Spotify playlists and Apple playlists. 
+<br><br> 
 
 
 

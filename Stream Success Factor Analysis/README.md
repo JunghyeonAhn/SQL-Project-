@@ -5,7 +5,7 @@ In this project involved the comprehensive cleaning and analysis of an 2023 Spot
 
 **🔶Data Cleaning:** Managing missing values, deleting noise/outlier in diverse columns. <br> 
 **🔶Hit Song Recipe:** Identifying Key Success Drivers: Comparative analysis of audio features (e.g., energy, danceability, acousticness) between Top 50 hit tracks and the overall dataset average to define the 2023 Hit Song Recipe. Correlation Analysis to uncover relationships among successful audio attributes. <br> 
-**🔶Quantifying Platform Influence:** Analysing the dependency ratio of Top 50 hits across Spotify, Apple Music, and Deezer playlist inclusion to quantify Spotify's market dominance.<br>
+**🔶 Platform effeciency:** Analysing the dependency ratio of Top 50 hits across Spotify, Apple Music, and Deezer playlist inclusion to quantify Spotify's market dominance.<br>
 
 **Actionable Insights:**
 
@@ -26,9 +26,9 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 ## Table of Contents
 - [Project 1: Data Cleaning](#project-1-Data-Cleaning)
 - [Project 2: Hit Song Recipe](#project-2-Hit-Song-Recipe)
-- [Project 3: Quantifying Platform Influence](#project-3-Quantifying-Platform-Influence)
+- [Project 3: Platform effeciency](#project-3-Platform-effeciency)
 - [Key Insights](#%EF%B8%8Fkey-insights)
-
+  
 # Projects:
 ## Project 1: Data Cleaning
 
@@ -84,61 +84,68 @@ As a result, there are some missing value in key, charts coulmn including 0 valu
 
 
 
-## Project 2: Hit Song Recipe
+## Project 2: EDA & Hit Song Recipe
 
-[View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%202.%20Product-Centric%20Analysis)
+[View SQL query]()
 
-### 1. Overview - Total revenue 
-<img width="533" height="411" alt="image" src="https://github.com/user-attachments/assets/42833da5-4bc0-439a-a0da-dd6e7b2d3289" />
+### EDA. 1.Overview 
+<img width="625" height="270" alt="image" src="https://github.com/user-attachments/assets/1ec76a06-0ff1-42e0-816b-d3492433a853" />
+
 <br><br>
 
-#### 1.1. Top 10 Purchased items
-<img width="550" height="395" alt="image" src="https://github.com/user-attachments/assets/5dbe4b4e-8810-4d6e-925e-b3d9f459a66e" />
+### EDA. 2.Song counts by released year
+<img width="203" height="323" alt="image" src="https://github.com/user-attachments/assets/1f6ad403-6e2c-4984-a47c-17edfd388c95" />
 <br><br>
 
-### 2. TOP 3 Sales items by country 
-<img width="486" height="578" alt="image" src="https://github.com/user-attachments/assets/746dd38c-8383-450f-aefa-c71e0fba6761" />
+### EDA. 3.TOP 10 Tracks by total streams
+<img width="416" height="353" alt="image" src="https://github.com/user-attachments/assets/ec78b9eb-655b-4981-b619-e74e44ce7d06" />
 <br><br>
 
-### 3. Top3 sales items by months
-<img width="506" height="565" alt="image" src="https://github.com/user-attachments/assets/7c95b695-7f30-46ac-82fb-63c058e91d8d" />
+### EDA. 4.TOP 10 Artists by total streams
+<img width="249" height="329" alt="image" src="https://github.com/user-attachments/assets/96bdfdc4-7657-44f9-8580-587f0dcb7b7a" />
+<br><br>
+
+### A Comparative Analysis of Audio Features (Top 50 vs. Total)
+#### Total_audio features
+<img width="704" height="415" alt="image" src="https://github.com/user-attachments/assets/c3c99f6e-d433-49e8-829e-2f90a4151143" />
+<br><br>
+
+#### Top50_audio features
+<img width="707" height="428" alt="image" src="https://github.com/user-attachments/assets/b29bf191-0016-4da9-94a3-fa93a8e66cc2" />
+<br><br>
+
+### Comparative Analysis of Hit Track Playlist Acquisition
+#### Total_number of playlist by platforms
+<img width="601" height="275" alt="image" src="https://github.com/user-attachments/assets/b09a34c6-6951-41d4-a65f-28da1951a4ec" />
+<br><br>
+
+#### Top50_number of playlists by platforms
+<img width="602" height="391" alt="image" src="https://github.com/user-attachments/assets/e6f46dba-52ee-469f-ba81-fa4e4ada2bcc" />
 <br><br>
 
 
+## Project 3: Platform effeciency
+[View SQL query]()
 
-
-## Project 3: Quantifying Platform Influence
-
-[View SQL query](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Online%20Retail%20Transaction%20Analysis/SQL-script%20-%203.%20%20Customer-Centric%20Analysis)
-
-### 1. Overview - Customer 
-<img width="599" height="409" alt="image" src="https://github.com/user-attachments/assets/703ae8e3-1c5f-402a-b360-8bace9799f28" />
+### 1. Platform effeciency - spotify vs apple 
+#### Total - 1.3%
+<img width="560" height="179" alt="image" src="https://github.com/user-attachments/assets/272e8f2e-98b8-4df5-bdb2-c4edfc82f0e9" />
 <br><br>
 
-### 2. Repurchase_Rate_Percentage
-<img width="514" height="314" alt="image" src="https://github.com/user-attachments/assets/ed50f5e4-2052-48b0-b38e-b79ab10c30d3" />
+#### Top50 - 1.2%
+<img width="653" height="331" alt="image" src="https://github.com/user-attachments/assets/febc9d53-6aa5-4eee-9dae-321a3ee3ad97" />
 <br><br>
 
-### 3. Purchase pattern by Country 
-<img width="444" height="414" alt="image" src="https://github.com/user-attachments/assets/f788068a-e161-4d46-8a18-eeae3f2bfdf5" />
+### 2. Platform effeciency - spotify vs deezer 
+#### Total - 1.9%
+<img width="578" height="167" alt="image" src="https://github.com/user-attachments/assets/51d4a72a-9dda-4464-9182-5e1d0647713f" />
 <br><br>
 
-### 4. TOP 10 Customer
-#### 4.1 Over 2 items
-<img width="528" height="400" alt="image" src="https://github.com/user-attachments/assets/81c077bd-964c-4613-9d68-773767779df1" />
+#### Top50 - 0.7%
+<img width="373" height="342" alt="image" src="https://github.com/user-attachments/assets/de374138-39ad-4774-ac3e-6e920416a333" />
 <br><br>
 
-#### 4.2 Less 2 items
-<img width="527" height="362" alt="image" src="https://github.com/user-attachments/assets/0502d839-f36c-42c2-bd17-4fb6890cc6da" />
-<br><br>
 
-### 5. Purchased items by CustomerID
-<img width="522" height="418" alt="image" src="https://github.com/user-attachments/assets/1235becb-7754-481f-8b7d-d43ab7584cdf" />
-<br><br>
-
-### 6. Purchases by Months
-<img width="606" height="392" alt="image" src="https://github.com/user-attachments/assets/a66f4cb1-bbe2-4304-96cd-36488ae18e55" />
-<br><br>
 
 
 

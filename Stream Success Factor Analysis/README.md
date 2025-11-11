@@ -25,7 +25,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 
 ## Table of Contents
 - [Project 1: Data Cleaning](#project-1-Data-Cleaning)
-- [Project 2: EDA & Hit Song Recipe](#project-2-EDA-Hit-Song-Recipe)
+- [Project 2: EDA & Hit Song Recipe](#project-2-EDA-&-Hit-Song-Recipe)
 - [Project 3: Platform effeciency](#project-3-Platform-effeciency)
 - [Key Insights](#%EF%B8%8Fkey-insights)
   

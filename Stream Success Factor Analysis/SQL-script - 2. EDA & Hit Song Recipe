@@ -1,0 +1,12 @@
+/* Title:  1. EDA & Hit Song Recipe
+   Description : 
+
+    [Cleaning Step]
+    1. Preview the data 
+    2. Numeric Outlier Value
+    3. Missing Values(NULL & Empty Strings)
+    4. Date/Time Range and Format Validation
+    5. Product Description Noise Filtration
+    6. Changing Date before analysing
+        
+*/

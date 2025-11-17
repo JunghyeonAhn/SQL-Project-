@@ -149,14 +149,20 @@ As a result, there are some missing value in key, charts coulmn including 0 valu
 ## Project 4 : Identifying correlation
 [View_Python_syntx](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Streaming_correlation_analysis.ipynb)
 ### 1. Does 'Acousticness' key factor have more times correlations for success of streamings than playlists? 
+<img width="800" height="100" alt="image" src="https://github.com/user-attachments/assets/b76d9fc0-51a0-477b-8196-a1a6e5b1ccef" />
 <br><br>
 
-### 2. Correlatioms between Spotify playlists and Apple playlists. 
-<br><br> 
+### 2. Spotify Playlist Success vs. Apple Music
+<img width="800" height="100" alt="image" src="https://github.com/user-attachments/assets/aa1a7b55-b8d3-42de-8f60-73a4390a7035" />
+<br><br>
 
+### 3. Channel Synchronization: Spotify and Deezer Distribution Correlation
+<img width="800" height="100" alt="image" src="https://github.com/user-attachments/assets/3b0b52b7-2430-4901-8c75-c99aabb9cbb9" />
+<br><br>
 
-
-
+### 4. Discovery Metric Validation: Shazam's Predictive Power on Streaming Success
+<img width="800" height="100" alt="image" src="https://github.com/user-attachments/assets/fb6f8968-b36c-464e-8da0-d4a7f26e581b" />
+<br><br>
 
 ## 🗝️Key Insights
 ### Summary

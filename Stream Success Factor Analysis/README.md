@@ -151,19 +151,30 @@ As a result, there are some missing value in key, charts coulmn including 0 valu
 ### 1. Does 'Acousticness' key factor have more times correlations for success of streamings than playlists? 
 <img width="800" height="100" alt="image" src="https://github.com/user-attachments/assets/b76d9fc0-51a0-477b-8196-a1a6e5b1ccef" />
 <br><br>
+The extremely weak positive correlation (p=0.087) with total streams confirms that Acousticness is not a driving factor for success. However, its slight presence suggests it functions as a supportive characteristics for long-tail streaming behavior rather than hit making ingredient.
+<br><br>
+Futhermore, second results of this correlation analysis, the weak negative correlation (p=-0.328)
+Acousticness may be a structural impediment to placement in high volume, high energy Spotipy playlists. This confirms a necessary trade off: contents should prioritize energy / danceability to secure mainstream distribution, or intentionally pursue Mood playlists where high Acousticness is a requirement. 
+<br><br>
 
 ### 2. Spotify Playlist Success vs. Apple Music
 <img width="800" height="100" alt="image" src="https://github.com/user-attachments/assets/aa1a7b55-b8d3-42de-8f60-73a4390a7035" />
+<br><br>
+The results confirm that success on Spotify does not translate to success on Apple Music. The user base is largely independent. Therefore, it needs to having sparate contents and marketing specially tailored for the Apple Music eco system.  
 <br><br>
 
 ### 3. Channel Synchronization: Spotify and Deezer Distribution Correlation
 <img width="800" height="100" alt="image" src="https://github.com/user-attachments/assets/3b0b52b7-2430-4901-8c75-c99aabb9cbb9" />
 <br><br>
+The results shows that between Spotify and Deezer have strong correlation, it means that sucessful Spotify tracks should be distributed on Deezer, so it recommends to focus resources on European target region for high efficiency.
 
+<br><br>
 ### 4. Discovery Metric Validation: Shazam's Predictive Power on Streaming Success
 <img width="800" height="100" alt="image" src="https://github.com/user-attachments/assets/fb6f8968-b36c-464e-8da0-d4a7f26e581b" />
 <br><br>
+The week negative correlation indicates that Shazam is not a valuable leading indicator for predicting commercial streaming success. 
 
+<br><br>
 ## 🗝️Key Insights
 ### Summary
 

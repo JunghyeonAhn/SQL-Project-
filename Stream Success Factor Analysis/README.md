@@ -27,7 +27,7 @@ LinkedIn [Junghyeon Ahn](https://www.linkedin.com/in/junghyeon-ahn/), Email: ro0
 - [Project 1: Data Cleaning](#project-1-data-cleaning)
 - [Project 2: EDA & Hit Song Recipe](#project-2-eda--hit-song-recipe)
 - [Project 3: Platform effeciency](#project-3-platform-effeciency)
-- [Project 4: Correlation Analysis for identifying Success key factor in 'streams' and 'platform'](#project-4-correlation-analysis-for-identifying-success-key-factor-in-streams-and-platform)
+- [Project 4: Correlation Analysis for identifying Success key factor in 'streams' and 'platform'](#project-4--correlation-analysis-for-identifying-success-key-factor-in-streams-and-platform)
 - [Key Insights](#%EF%B8%8Fkey-insights)
   
 # Projects:

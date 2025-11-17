@@ -147,7 +147,7 @@ As a result, there are some missing value in key, charts coulmn including 0 valu
 <br><br>
 
 ## Project 4 : Identifying correlation
-[View_Python_syntx]()
+[View_Python_syntx](https://github.com/JunghyeonAhn/SQL-Project-/blob/main/Streaming_correlation_analysis.ipynb)
 ### 1. Does 'Acousticness' key factor have more times correlations for success of streamings than playlists? 
 <br><br>
 

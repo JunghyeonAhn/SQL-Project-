@@ -1,5 +1,5 @@
 # 🎧 Stream Success Factor Analysis
-In this project involved the comprehensive cleaning and analysis of an 2023 Spotify dataset, utilising MySQL in the DBeaver environment.
+In this project involved the comprehensive cleaning and analysis of an 2023 Spotify dataset, utilising MySQL in the DBeaver environment and for correlation analysis Python was used in Google colab. 
 
 #### Key Phases:
 

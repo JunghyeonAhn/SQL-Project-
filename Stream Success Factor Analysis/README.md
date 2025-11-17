@@ -58,7 +58,8 @@ Furthermore, some negative transactions contain empty strings in the 'Descriptio
 There was one outlier in streams column<br><br>
 <img width="770" height="238" alt="image" src="https://github.com/user-attachments/assets/208d0014-b784-45ad-ad32-67f6a128acef" />
 <br><br>
-In addition to there are some noises in track name, but that seems japanese word 
+
+In addition to there are some noises in track name, but that seems japanese word<br><br>
 <img width="361" height="311" alt="image" src="https://github.com/user-attachments/assets/9b6f20b6-f272-475b-856c-3ffc6a19da21" />
 <br><br>
 
